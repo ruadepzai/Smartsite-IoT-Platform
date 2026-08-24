@@ -134,8 +134,9 @@ export default function SystemDashboard() {
       title: 'Trạm / Node Hạ tầng',
       dataIndex: 'name',
       key: 'name',
+      width: 220,
       render: (name, record) => (
-        <div>
+        <div style={{ whiteSpace: 'nowrap' }}>
           <Text strong style={{ fontSize: 13 }}>{name}</Text>
           <Text type="secondary" style={{ display: 'block', fontSize: 11 }}>
             IP: {record.ip} • Vị trí: {record.location}
@@ -816,6 +817,7 @@ export default function SystemDashboard() {
               pagination={false}
               size="middle"
               bordered
+              scroll={{ x: 1000 }}
             />
           </Card>
         </Col>

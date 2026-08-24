@@ -349,6 +349,7 @@ export default function CompanyList() {
           loading={loading}
           bordered
           size="middle"
+          scroll={{ x: 900 }}
           pagination={{
             current: currentPage,
             pageSize: pageSize,
