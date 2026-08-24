@@ -196,10 +196,10 @@ export default function Login() {
             <ShieldCheck size={28} />
           </div>
           <Title level={3} style={{ margin: 0, color: '#FFFFFF', fontWeight: 700, letterSpacing: '-0.02em' }}>
-            SmartSite Admin Console
+            SmartSite IoT Platform
           </Title>
           <Text style={{ color: '#94A3B8', fontSize: 13, display: 'block', marginTop: 4 }}>
-            {!isForgotPassword ? 'Đăng nhập quản trị hệ thống' : 'Khôi phục mật khẩu tài khoản'}
+            {!isForgotPassword ? 'Nền tảng Giám sát & Quản trị IoT' : 'Khôi phục mật khẩu tài khoản'}
           </Text>
         </div>
 
