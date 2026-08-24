@@ -281,7 +281,8 @@ export default function TenantLayout() {
         collapsed={collapsed}
         onCollapse={setCollapsed}
         trigger={null}
-        width={280}
+        width={220}
+        collapsedWidth={64}
         style={{
           overflow: 'auto',
           height: '100vh',
@@ -297,26 +298,26 @@ export default function TenantLayout() {
         {/* Logo & Tenant Brand Header */}
         <div
           style={{
-            height: 64,
+            height: 52,
             display: 'flex',
             alignItems: 'center',
-            padding: '0 16px',
-            gap: 10,
+            padding: '0 14px',
+            gap: 8,
             borderBottom: `1px solid ${isDark ? '#1F2937' : '#E5E7EB'}`,
           }}
         >
           <div
             style={{
-              width: 36,
-              height: 36,
-              borderRadius: 8,
+              width: 32,
+              height: 32,
+              borderRadius: 6,
               background: 'linear-gradient(135deg, #0B72E7 0%, #10B981 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: '#FFFFFF',
               fontWeight: 800,
-              fontSize: 16,
+              fontSize: 14,
               flexShrink: 0,
             }}
           >
@@ -325,11 +326,11 @@ export default function TenantLayout() {
 
           {!collapsed && (
             <div style={{ overflow: 'hidden' }}>
-              <Text strong style={{ fontSize: 13, display: 'block', lineHeight: 1.2 }} ellipsis>
+              <Text strong style={{ fontSize: 12.5, display: 'block', lineHeight: 1.2 }} ellipsis>
                 {tenantProfile.shortName}
               </Text>
-              <Tag color="blue" style={{ fontSize: 10, padding: '0 4px', borderRadius: 4, marginTop: 2 }}>
-                Tenant Portal (Giai đoạn 2)
+              <Tag color="blue" style={{ fontSize: 9, padding: '0 3px', borderRadius: 3, marginTop: 2 }}>
+                Tenant Portal
               </Tag>
             </div>
           )}
@@ -343,18 +344,19 @@ export default function TenantLayout() {
           style={{
             borderRight: 0,
             background: 'transparent',
-            padding: '8px 0 80px 0',
+            padding: '6px 0 60px 0',
+            fontSize: 12.5,
           }}
         />
       </Sider>
 
       {/* ================= MAIN CONTENT LAYOUT ================= */}
-      <Layout style={{ marginLeft: collapsed ? 80 : 280, transition: 'all 0.2s', minHeight: '100vh' }}>
+      <Layout style={{ marginLeft: collapsed ? 64 : 220, transition: 'all 0.2s', minHeight: '100vh' }}>
         {/* Top Header */}
         <Header
           style={{
-            height: 64,
-            padding: '0 24px',
+            height: 52,
+            padding: '0 18px',
             background: isDark ? '#111827' : '#FFFFFF',
             borderBottom: `1px solid ${isDark ? '#1F2937' : '#E5E7EB'}`,
             display: 'flex',
@@ -458,16 +460,16 @@ export default function TenantLayout() {
         {/* Dynamic Breadcrumbs Bar */}
         <div
           style={{
-            padding: '12px 24px',
+            padding: '8px 18px',
             backgroundColor: isDark ? '#111827' : '#FFFFFF',
             borderBottom: `1px solid ${isDark ? '#1F2937' : '#E5E7EB'}`,
           }}
         >
-          <Breadcrumb items={getBreadcrumbItems()} />
+          <Breadcrumb items={getBreadcrumbItems()} style={{ fontSize: 12.5 }} />
         </div>
 
         {/* Content Body */}
-        <Content style={{ margin: '20px 24px', minHeight: 280 }}>
+        <Content style={{ margin: '14px 18px', minHeight: 280 }}>
           <Outlet context={{ currentTenant: tenantProfile }} />
         </Content>
       </Layout>

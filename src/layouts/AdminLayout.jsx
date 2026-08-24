@@ -289,8 +289,8 @@ export default function AdminLayout() {
         trigger={null}
         collapsible
         collapsed={collapsed}
-        width={240}
-        collapsedWidth={80}
+        width={210}
+        collapsedWidth={64}
         style={{
           overflow: 'auto',
           height: '100vh',
@@ -308,21 +308,21 @@ export default function AdminLayout() {
         {/* Brand Logo Header */}
         <div
           style={{
-            height: 64,
+            height: 52,
             display: 'flex',
             alignItems: 'center',
             justifyContent: collapsed ? 'center' : 'flex-start',
-            padding: collapsed ? '0' : '0 20px',
-            gap: 12,
+            padding: collapsed ? '0' : '0 16px',
+            gap: 10,
             borderBottom: `1px solid ${isDark ? '#1E293B' : '#1E293B'}`,
             background: isDark ? '#0B0F19' : '#101828',
           }}
         >
           <div
             style={{
-              width: 36,
-              height: 36,
-              borderRadius: 8,
+              width: 32,
+              height: 32,
+              borderRadius: 6,
               backgroundColor: '#0B72E7',
               display: 'flex',
               alignItems: 'center',
@@ -331,14 +331,14 @@ export default function AdminLayout() {
               flexShrink: 0,
             }}
           >
-            <ShieldCheck size={20} />
+            <ShieldCheck size={18} />
           </div>
           {!collapsed && (
             <div style={{ overflow: 'hidden', whiteSpace: 'nowrap' }}>
-              <Text style={{ color: '#FFFFFF', fontWeight: 700, fontSize: 16, display: 'block', lineHeight: 1.2 }}>
+              <Text style={{ color: '#FFFFFF', fontWeight: 700, fontSize: 14, display: 'block', lineHeight: 1.2 }}>
                 SmartSite
               </Text>
-              <Text style={{ color: '#64748B', fontSize: 11, fontWeight: 500 }}>
+              <Text style={{ color: '#64748B', fontSize: 10, fontWeight: 500 }}>
                 Admin Console
               </Text>
             </div>
@@ -346,7 +346,7 @@ export default function AdminLayout() {
         </div>
 
         {/* Navigation Menu */}
-        <div style={{ flex: 1, padding: '12px 0', overflowY: 'auto' }}>
+        <div style={{ flex: 1, padding: '8px 0', overflowY: 'auto' }}>
           <Menu
             theme="dark"
             mode="inline"
@@ -356,7 +356,7 @@ export default function AdminLayout() {
             style={{
               background: 'transparent',
               borderRight: 'none',
-              fontSize: 13,
+              fontSize: 12.5,
             }}
           />
         </div>
@@ -364,7 +364,7 @@ export default function AdminLayout() {
         {/* Sidebar Collapse Toggle Button */}
         <div
           style={{
-            padding: '12px 16px',
+            padding: '10px 14px',
             borderTop: `1px solid ${isDark ? '#1E293B' : '#1E293B'}`,
             background: isDark ? '#0B0F19' : '#101828',
           }}
@@ -373,16 +373,16 @@ export default function AdminLayout() {
             type="text"
             block
             onClick={() => setCollapsed(!collapsed)}
-            icon={collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
+            icon={collapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
             style={{
               color: '#94A3B8',
               display: 'flex',
               alignItems: 'center',
               justifyContent: collapsed ? 'center' : 'flex-start',
-              padding: collapsed ? 0 : '0 8px',
+              padding: collapsed ? 0 : '0 6px',
             }}
           >
-            {!collapsed && <span style={{ marginLeft: 8, fontSize: 13 }}>Thu gọn menu</span>}
+            {!collapsed && <span style={{ marginLeft: 6, fontSize: 12 }}>Thu gọn menu</span>}
           </Button>
         </div>
       </Sider>
@@ -390,7 +390,7 @@ export default function AdminLayout() {
       {/* ================= MAIN LAYOUT AREA ================= */}
       <Layout
         style={{
-          marginLeft: collapsed ? 80 : 240,
+          marginLeft: collapsed ? 64 : 210,
           transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
           minHeight: '100vh',
           background: token.colorBgLayout,
@@ -403,8 +403,8 @@ export default function AdminLayout() {
             top: 0,
             zIndex: 99,
             width: '100%',
-            height: 64,
-            padding: '0 24px',
+            height: 52,
+            padding: '0 18px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -502,8 +502,8 @@ export default function AdminLayout() {
         {/* ================= CONTENT BODY ================= */}
         <Content
           style={{
-            padding: '24px',
-            minHeight: 'calc(100vh - 64px)',
+            padding: '16px 20px',
+            minHeight: 'calc(100vh - 52px)',
             background: token.colorBgLayout,
           }}
         >

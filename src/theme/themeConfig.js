@@ -33,14 +33,18 @@ export const getThemeConfig = (isDark) => ({
     : [antdTheme.defaultAlgorithm, antdTheme.compactAlgorithm],
   token: {
     ...(isDark ? darkTokens : lightTokens),
-    fontSize: 13,
-    fontSizeHeading1: 24,
-    fontSizeHeading2: 20,
-    fontSizeHeading3: 17,
-    fontSizeHeading4: 15,
-    fontSizeHeading5: 13,
-    controlHeight: 32,
+    fontSize: 12.5,
+    fontSizeHeading1: 22,
+    fontSizeHeading2: 18,
+    fontSizeHeading3: 15,
+    fontSizeHeading4: 14,
+    fontSizeHeading5: 12.5,
+    controlHeight: 30,
+    controlHeightLG: 36,
+    controlHeightSM: 24,
     borderRadius: 6,
+    padding: 10,
+    paddingSM: 6,
   },
   components: {
     Layout: {
@@ -52,17 +56,30 @@ export const getThemeConfig = (isDark) => ({
       darkItemSelectedBg: isDark ? '#161B22' : '#1D2939',
       darkItemColor: '#CBD5E1',
       darkItemSelectedColor: '#FFFFFF',
-      itemHeight: 36,
+      itemHeight: 34,
+      iconSize: 16,
     },
     Card: {
-      paddingLG: 16,
+      paddingLG: 14,
+      padding: 12,
     },
     Table: {
-      padding: 10,
-      paddingSM: 8,
+      padding: 8,
+      paddingSM: 6,
+      fontSize: 12,
     },
     Form: {
-      itemMarginBottom: 16,
+      itemMarginBottom: 14,
+    },
+    Button: {
+      controlHeight: 30,
+      paddingInline: 12,
+    },
+    Input: {
+      controlHeight: 30,
+    },
+    Select: {
+      controlHeight: 30,
     },
   },
 });
