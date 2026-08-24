@@ -93,7 +93,7 @@ export default function Login() {
 
   // Xử lý submit Quên mật khẩu (MH-MA1-02)
   const handleForgotPassword = (values) => {
-    // BR-A24: Kiểm tra cooldown
+    // BR-A27: Kiểm tra cooldown 60 giây (SSOT v14.0)
     if (countdown > 0) {
       message.warning('Vui lòng đợi ít nhất 60 giây trước khi gửi lại.'); // MSG-04
       return;

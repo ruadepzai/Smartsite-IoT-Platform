@@ -228,7 +228,7 @@ export default function AuditLogList() {
             </Title>
           </Space>
           <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
-            Truy vết toàn bộ hoạt động quản trị, thay đổi cấu hình hạ tầng và sự kiện bảo mật theo thời gian thực (BR-A17)
+            Truy vết toàn bộ hoạt động quản trị, thay đổi cấu hình hạ tầng và sự kiện bảo mật theo thời gian thực (BR-A25)
           </Text>
         </div>
 

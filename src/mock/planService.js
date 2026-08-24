@@ -258,20 +258,23 @@ export const planService = {
       const maxUsr = t.max_users || 1;
       const usrPct = Math.round((usedUsr / maxUsr) * 100);
 
-      // BR-A23: Màu sắc và mức cảnh báo dựa theo % cao nhất giữa thiết bị và user
+      // BR-A23: Ngưỡng cảnh báo mức sử dụng hạn mức
+      // - Bình thường: < 80% (Xanh lá)
+      // - Sắp vượt hạn mức: 80% - 99% (Vàng cam, >= 80%)
+      // - Đã vượt hạn mức: >= 100% (Đỏ, >= 100%)
       const maxPct = Math.max(devPct, usrPct);
 
-      let colorLevel = 'green'; // < 50%
+      let colorLevel = 'green'; // < 80%
       let riskLabel = 'Bình thường';
       let strokeColor = '#16A34A'; // Xanh lá
 
-      if (maxPct >= 80) {
-        colorLevel = 'red'; // >= 80%
-        riskLabel = maxPct >= 100 ? 'Đã vượt hạn mức' : 'Đã chạm ngưỡng (≥80%)';
+      if (maxPct >= 100) {
+        colorLevel = 'red'; // >= 100%
+        riskLabel = 'Đã vượt hạn mức (≥100%)';
         strokeColor = '#DC2626'; // Đỏ
-      } else if (maxPct >= 50) {
-        colorLevel = 'yellow'; // 50% - 79%
-        riskLabel = 'Sắp vượt hạn mức';
+      } else if (maxPct >= 80) {
+        colorLevel = 'yellow'; // 80% - 99%
+        riskLabel = 'Sắp vượt hạn mức (≥80%)';
         strokeColor = '#D97706'; // Vàng cam
       }
 

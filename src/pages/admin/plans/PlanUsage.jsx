@@ -236,17 +236,17 @@ export default function PlanUsage() {
               />
             </Col>
 
-            {/* STT 1: Icon / Dropdown Lọc theo mức độ sử dụng (BR-A23) */}
+            {/* STT 1: Icon / Dropdown Lọc theo mức độ sử dụng (BR-A23: Sắp vượt >=80%, Đã vượt >=100%) */}
             <Col xs={12} md={6}>
               <Select
                 value={riskFilter}
                 onChange={(val) => setRiskFilter(val)}
                 style={{ width: '100%' }}
                 options={[
-                  { value: 'all', label: 'Tất cả mức độ rủi ro' },
-                  { value: 'red', label: '🔴 Đã chạm/vượt ngưỡng (≥80%)' },
-                  { value: 'yellow', label: '🟡 Sắp vượt hạn mức (50% - 79%)' },
-                  { value: 'green', label: '🟢 Bình thường (<50%)' },
+                  { value: 'all', label: 'Tất cả mức độ sử dụng' },
+                  { value: 'red', label: '🔴 Đã vượt hạn mức (≥100%)' },
+                  { value: 'yellow', label: '🟡 Sắp vượt hạn mức (80% - 99%)' },
+                  { value: 'green', label: '🟢 Bình thường (<80%)' },
                 ]}
               />
             </Col>
