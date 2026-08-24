@@ -247,11 +247,6 @@ export default function AdminLayout() {
           icon: <Users size={18} />,
           label: 'Nhân viên vận hành',
         },
-        {
-          key: '/admin/my-account',
-          icon: <UserCircle size={18} />,
-          label: 'Tài khoản của tôi',
-        },
       ],
     },
     {
