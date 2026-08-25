@@ -399,16 +399,16 @@ export default function TenantLayout() {
           </Space>
 
           {/* Right Header: Quota Usage Chips & Profile Controls */}
-          <Space size={16} align="center">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, lineHeight: 1 }}>
             {/* Quota Chips (Hạn mức Gateway & Thiết bị) */}
             <div style={{ display: 'none' }} className="md:flex items-center gap-2">
               <Tooltip title="Hạn mức Gateway IoT của doanh nghiệp">
-                <Tag color="blue" style={{ borderRadius: 6, fontSize: 12, padding: '2px 8px' }}>
+                <Tag color="blue" style={{ borderRadius: 6, fontSize: 11.5, padding: '2px 8px', margin: 0 }}>
                   Gateway: <strong>{tenantProfile.usedGateways}/{tenantProfile.maxGateways}</strong>
                 </Tag>
               </Tooltip>
               <Tooltip title="Hạn mức Thiết bị cảm biến / Đo đếm">
-                <Tag color="green" style={{ borderRadius: 6, fontSize: 12, padding: '2px 8px' }}>
+                <Tag color="green" style={{ borderRadius: 6, fontSize: 11.5, padding: '2px 8px', margin: 0 }}>
                   Thiết bị: <strong>{tenantProfile.usedDevices}/{tenantProfile.maxDevices}</strong>
                 </Tag>
               </Tooltip>
@@ -416,60 +416,64 @@ export default function TenantLayout() {
 
             {/* Notification Bell */}
             <Tooltip title={criticalCount > 0 ? `Có ${criticalCount} cảnh báo Critical chưa xử lý` : 'Trung tâm cảnh báo'}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Badge count={criticalCount} size="small" offset={[-3, 4]}>
-                  <Button
-                    type="text"
-                    shape="circle"
-                    onClick={() => navigate('/tenant/alerts')}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: 34,
-                      height: 34,
-                      padding: 0,
-                    }}
-                  >
-                    <Bell size={18} style={{ color: criticalCount > 0 ? '#DC2626' : undefined }} />
-                  </Button>
+              <div
+                onClick={() => navigate('/tenant/alerts')}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: 32,
+                  height: 32,
+                  cursor: 'pointer',
+                  borderRadius: '50%',
+                  backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)',
+                  transition: 'all 0.2s',
+                }}
+              >
+                <Badge count={criticalCount} size="small" offset={[-2, 2]}>
+                  <Bell size={18} style={{ color: criticalCount > 0 ? '#DC2626' : (isDark ? '#CBD5E1' : '#475467'), display: 'block' }} />
                 </Badge>
               </div>
             </Tooltip>
 
             {/* Theme Toggle */}
             <Tooltip title={isDark ? 'Chuyển giao diện sáng' : 'Chuyển giao diện tối'}>
-              <Button
-                type="text"
-                shape="circle"
+              <div
                 onClick={toggleTheme}
                 style={{
-                  display: 'inline-flex',
+                  display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  width: 34,
-                  height: 34,
-                  padding: 0,
+                  width: 32,
+                  height: 32,
+                  cursor: 'pointer',
+                  borderRadius: '50%',
+                  backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)',
+                  transition: 'all 0.2s',
                 }}
               >
-                {isDark ? <Sun size={18} style={{ color: '#FDB022' }} /> : <Moon size={18} style={{ color: '#64748B' }} />}
-              </Button>
+                {isDark ? (
+                  <Sun size={18} style={{ color: '#FDB022', display: 'block' }} />
+                ) : (
+                  <Moon size={18} style={{ color: '#64748B', display: 'block' }} />
+                )}
+              </div>
             </Tooltip>
 
             {/* User Profile */}
             <Dropdown menu={{ items: userMenuItems }} trigger={['click']} placement="bottomRight">
               <div
                 style={{
-                  display: 'inline-flex',
+                  display: 'flex',
                   alignItems: 'center',
                   gap: 8,
                   cursor: 'pointer',
-                  padding: '3px 8px',
+                  padding: '2px 6px',
                   borderRadius: 8,
-                  height: 34,
+                  height: 32,
                 }}
               >
-                <Avatar style={{ backgroundColor: '#0B72E7', fontWeight: 600, fontSize: 12.5, flexShrink: 0 }} size={28}>
+                <Avatar style={{ backgroundColor: '#0B72E7', fontWeight: 600, fontSize: 12, flexShrink: 0 }} size={28}>
                   NL
                 </Avatar>
                 <div style={{ display: 'none', lineHeight: 1.2, textAlign: 'left' }} className="lg:block">
@@ -482,7 +486,7 @@ export default function TenantLayout() {
                 </div>
               </div>
             </Dropdown>
-          </Space>
+          </div>
         </Header>
 
         {/* Dynamic Breadcrumbs Bar */}

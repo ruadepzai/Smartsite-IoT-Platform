@@ -441,22 +441,30 @@ export default function AdminLayout() {
           </Space>
 
           {/* Header Right: (1) Toggle Theme, (2) User Avatar & Dropdown */}
-          <Space orientation="horizontal" size={16} align="center">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, lineHeight: 1 }}>
             {/* (1) Nút Toggle Light / Dark Mode */}
-            <Button
-              type="text"
-              shape="circle"
-              onClick={toggleTheme}
-              icon={isDark ? <Sun size={18} style={{ color: '#FDB022' }} /> : <Moon size={18} style={{ color: '#64748B' }} />}
-              title={isDark ? 'Chuyển sang giao diện Sáng' : 'Chuyển sang giao diện Tối'}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 36,
-                height: 36,
-              }}
-            />
+            <Tooltip title={isDark ? 'Chuyển giao diện sáng' : 'Chuyển giao diện tối'}>
+              <div
+                onClick={toggleTheme}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: 32,
+                  height: 32,
+                  cursor: 'pointer',
+                  borderRadius: '50%',
+                  backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)',
+                  transition: 'all 0.2s',
+                }}
+              >
+                {isDark ? (
+                  <Sun size={18} style={{ color: '#FDB022', display: 'block' }} />
+                ) : (
+                  <Moon size={18} style={{ color: '#64748B', display: 'block' }} />
+                )}
+              </div>
+            </Tooltip>
 
             {/* (2) Avatar + User Profile Dropdown */}
             {(() => {
@@ -468,10 +476,11 @@ export default function AdminLayout() {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: 10,
+                      gap: 8,
                       cursor: 'pointer',
-                      padding: '4px 8px',
+                      padding: '2px 6px',
                       borderRadius: 8,
+                      height: 32,
                       transition: 'background 0.2s',
                     }}
                   >
@@ -479,16 +488,18 @@ export default function AdminLayout() {
                       style={{
                         backgroundColor: '#0B72E7',
                         fontWeight: 600,
-                        fontSize: 14,
+                        fontSize: 12.5,
+                        flexShrink: 0,
                       }}
+                      size={28}
                     >
                       {initial}
                     </Avatar>
                     <div style={{ lineHeight: 1.2, textAlign: 'left' }}>
-                      <Text strong style={{ fontSize: 13, display: 'block' }}>
+                      <Text strong style={{ fontSize: 12.5, display: 'block' }}>
                         {user?.name || 'Nguyễn Văn An'}
                       </Text>
-                      <Text type="secondary" style={{ fontSize: 11 }}>
+                      <Text type="secondary" style={{ fontSize: 10.5 }}>
                         {user?.role || 'Quản trị hệ thống'}
                       </Text>
                     </div>
@@ -496,7 +507,7 @@ export default function AdminLayout() {
                 </Dropdown>
               );
             })()}
-          </Space>
+          </div>
         </Header>
 
         {/* ================= CONTENT BODY ================= */}
