@@ -258,7 +258,7 @@ export default function TenantAlertSeverityReport() {
             style={{ borderRadius: 12, height: '100%' }}
           >
             <div style={{ height: 260 }}>
-              <DonutBreakdownChart data={alertBreakdown} centerText="Tổng sự cố" centerValue="40" />
+              <DonutBreakdownChart data={alertBreakdown} centerText="Cảnh báo" centerValue="100%" />
             </div>
           </Card>
         </Col>

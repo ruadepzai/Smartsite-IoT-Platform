@@ -416,13 +416,21 @@ export function Sparkline({ data = [20, 35, 30, 45, 60, 55, 70, 65, 80], color =
 /**
  * 4. DonutBreakdownChart: Biểu đồ tròn cơ cấu gói cước & giao thức IoT
  */
-export function DonutBreakdownChart({ data = [], totalLabel = 'Doanh thu', size = 160 }) {
+export function DonutBreakdownChart({
+  data = [],
+  totalLabel = 'Tổng cộng',
+  centerText,
+  centerValue,
+  size = 160,
+}) {
   const { isDark } = useTheme();
   const strokeWidth = 22;
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
 
   let accumulatedPercent = 0;
+  const displayLabel = centerText || totalLabel || 'Tổng cộng';
+  const displayValue = centerValue !== undefined ? centerValue : '100%';
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap', gap: 16 }}>
@@ -471,8 +479,8 @@ export function DonutBreakdownChart({ data = [], totalLabel = 'Doanh thu', size 
             pointerEvents: 'none',
           }}
         >
-          <Text strong style={{ fontSize: 16, lineHeight: 1 }}>100%</Text>
-          <Text type="secondary" style={{ fontSize: 11, marginTop: 2 }}>{totalLabel}</Text>
+          <Text strong style={{ fontSize: 16, lineHeight: 1 }}>{displayValue}</Text>
+          <Text type="secondary" style={{ fontSize: 11, marginTop: 2 }}>{displayLabel}</Text>
         </div>
       </div>
 
