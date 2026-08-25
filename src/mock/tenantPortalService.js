@@ -503,13 +503,23 @@ export const tenantPortalService = {
       deviceName: device ? device.name : 'Thiết bị IoT',
       method,
       params: typeof params === 'string' ? params : JSON.stringify(params),
-      status: 'SUCCESS',
+      status: 'PENDING', // PENDING -> SUCCESS / FAILED / TIMEOUT (BR-T15)
       sentBy: 'Nguyễn Hoàng Long (Tenant Admin)',
       sentAt: 'Vừa xong',
-      responseMessage: 'Lệnh điều khiển đã thực thi thành công trên thiết bị.',
+      responseMessage: 'Đang truyền lệnh qua giao thức MQTT và chờ thiết bị phản hồi...',
     };
     INITIAL_RPC_LOGS.unshift(newRpc);
     return { success: true, rpc: newRpc };
+  },
+
+  updateRpcStatus(id, status, responseMessage) {
+    const rpc = INITIAL_RPC_LOGS.find((r) => r.id === id);
+    if (rpc) {
+      rpc.status = status;
+      rpc.responseMessage = responseMessage;
+      return { success: true, rpc };
+    }
+    return { success: false };
   },
 
   // Lấy lịch sử lệnh RPC (FN-MT3-03)

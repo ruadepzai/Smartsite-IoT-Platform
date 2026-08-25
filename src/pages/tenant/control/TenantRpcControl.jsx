@@ -92,16 +92,37 @@ export default function TenantRpcControl() {
     }
 
     setLoading(true);
-    message.loading('Đang gửi lệnh RPC tới thiết bị...', 0.8);
+    message.loading('Đang khởi tạo và truyền lệnh RPC qua MQTT broker...', 0.6);
 
     setTimeout(() => {
       setLoading(false);
-      tenantPortalService.sendRpcCommand(values.deviceId, values.method, values.params || '{}');
+      const res = tenantPortalService.sendRpcCommand(values.deviceId, values.method, values.params || '{}');
+      const createdRpc = res.rpc;
       setRpcLogs([...tenantPortalService.getRpcLogs()]);
       setCreateModalVisible(false);
       form.resetFields();
-      message.success(`Đã gửi lệnh RPC thành công (Trạng thái ban đầu: PENDING — BR-T15)`);
-    }, 800);
+      message.info(`Đã phát lệnh ${createdRpc.id}. Trạng thái: PENDING (Đang chờ thiết bị phản hồi — BR-T15)`);
+
+      // Tự động cập nhật Real-time (WebSocket): Sau 2.5s thiết bị phản hồi và bảng tự động đổi sang SUCCESS
+      setTimeout(() => {
+        tenantPortalService.updateRpcStatus(
+          createdRpc.id,
+          'SUCCESS',
+          'Thiết bị đã tiếp nhận lệnh và thực thi hoàn tất trong 2.4s (Phản hồi qua MQTT topic rpc/response).'
+        );
+        setRpcLogs([...tenantPortalService.getRpcLogs()]);
+        message.success(`⚡ Lệnh ${createdRpc.id} đã hoàn tất thực thi: SUCCESS (Tự động cập nhật Real-time)`);
+      }, 2500);
+    }, 600);
+  };
+
+  // Làm mới danh sách lệnh thủ công
+  const handleManualRefresh = () => {
+    message.loading('Đang đồng bộ trạng thái lệnh RPC mới nhất...', 0.4);
+    setTimeout(() => {
+      setRpcLogs([...tenantPortalService.getRpcLogs()]);
+      message.success('Đã làm mới dữ liệu lệnh RPC.');
+    }, 400);
   };
 
   // Lọc lịch sử lệnh RPC
@@ -303,6 +324,14 @@ export default function TenantRpcControl() {
                 <Option value="TIMEOUT">Timeout (60s)</Option>
                 <Option value="PENDING">Pending (Đang chờ)</Option>
               </Select>
+
+              <Button
+                icon={<RotateCcw size={14} />}
+                onClick={handleManualRefresh}
+                style={{ borderRadius: 6 }}
+              >
+                Làm mới
+              </Button>
             </Space>
           </Col>
         </Row>
