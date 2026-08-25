@@ -1,6 +1,7 @@
 // Mã màn hình: MH-MT3-03 (Danh sách Cảnh báo) & MH-MT3-04 (Chi tiết & Xử lý Cảnh báo — Tenant Portal)
 // Dựa theo FN-MT3-04, FN-MT3-05, FN-MT3-06 & UC-MT3-04, UC-MT3-05, UC-MT3-06 trong SmartSite_Function_List_v9 & SmartSite_IoT_UseCase_List_v5
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Card,
   Typography,
@@ -52,6 +53,7 @@ const { Option } = Select;
 
 export default function TenantAlertCenter() {
   const { isDark } = useTheme();
+  const navigate = useNavigate();
   const [alerts, setAlerts] = useState(tenantPortalService.getAlerts());
   const [searchText, setSearchText] = useState('');
   const [selectedSeverity, setSelectedSeverity] = useState('ALL');
@@ -218,7 +220,7 @@ export default function TenantAlertCenter() {
           <Button
             type="default"
             icon={<Clock size={14} />}
-            onClick={() => (window.location.href = '/tenant/alert-feed')}
+            onClick={() => navigate('/tenant/alert-feed')}
             style={{ borderRadius: 8, height: 38 }}
           >
             Xem Feed Nhật Ký (MH-MT3-06)

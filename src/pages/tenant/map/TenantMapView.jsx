@@ -1,6 +1,5 @@
-// Mã màn hình: MH-MT2-04 (Bản đồ Giám sát Thiết bị IoT GIS — Bản đồ Việt Nam Thực tế)
-// Dựa theo FN-MT2-05, FN-MT2-06, FN-MT2-07 & UC-MT2-09 trong SmartSite_Function_List_v9 & SmartSite_IoT_UseCase_List_v5
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Card,
   Typography,
@@ -126,6 +125,7 @@ const VIETNAM_BUILDINGS = [
 
 export default function TenantMapView() {
   const { isDark } = useTheme();
+  const navigate = useNavigate();
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const markersRef = useRef([]);
@@ -613,7 +613,7 @@ export default function TenantMapView() {
                 style={{ backgroundColor: '#0B72E7', borderRadius: 8 }}
                 onClick={() => {
                   setDrawerVisible(false);
-                  window.location.href = '/tenant/devices';
+                  navigate('/tenant/devices');
                 }}
               >
                 Xem Danh Sách Thiết Bị Tại Đây

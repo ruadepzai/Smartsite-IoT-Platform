@@ -1,6 +1,7 @@
 // Mã màn hình: MH-MT3-01 (Dashboard Giám sát Thời Gian Thực & Điều Hành Nhanh — Tenant Portal)
 // Dựa theo FN-MT3-01, FN-MT3-02 & UC-MT3-01, UC-MT3-02 trong SmartSite_Function_List_v9 & SmartSite_IoT_UseCase_List_v5
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Card,
   Typography,
@@ -53,6 +54,7 @@ const { Option } = Select;
 
 export default function TenantDashboard() {
   const { isDark } = useTheme();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState('ALL');
   const [chartTimeRange, setChartTimeRange] = useState('24H'); // '24H' (Realtime) | '30D' (Tổng hợp 30 ngày — BR-T17)
@@ -322,7 +324,7 @@ export default function TenantDashboard() {
                 type="link"
                 block
                 style={{ marginTop: 8 }}
-                onClick={() => (window.location.href = '/tenant/alerts')}
+                onClick={() => navigate('/tenant/alerts')}
               >
                 Xem Toàn Bộ Trung Tâm Cảnh Báo &gt;
               </Button>

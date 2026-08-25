@@ -136,7 +136,7 @@ export default function TenantLayout() {
         {
           key: 'control',
           icon: <Sliders size={18} />,
-          label: 'Điều khiển từ xa (RPC)',
+          label: 'Lịch sử Lệnh & Điều khiển (RPC)',
           onClick: () => navigate('/tenant/control'),
         },
         {
@@ -223,7 +223,7 @@ export default function TenantLayout() {
     } else if (pathname === '/tenant/firmware') {
       items.push({ title: 'Quản lý Gói Firmware & OTA' });
     } else if (pathname === '/tenant/control') {
-      items.push({ title: 'Điều khiển từ xa (RPC)' });
+      items.push({ title: 'Lịch sử Lệnh & Điều khiển (RPC)' });
     } else if (pathname === '/tenant/alerts') {
       items.push({ title: 'Danh sách & Xử lý Cảnh báo' });
     } else if (pathname === '/tenant/alert-feed') {
