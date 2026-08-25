@@ -12,13 +12,14 @@ const { Text } = Typography;
 export function AreaLineChart({
   data = [],
   xKey = 'time',
+  lines = null,
   yKey = 'throughput',
   secondaryYKey = 'wsConnections',
   color = '#0B72E7',
   secondaryColor = '#10B981',
   height = 260,
-  unit = 'msg/s',
-  secondaryUnit = 'sessions',
+  unit = 'sự cố',
+  secondaryUnit = 'sự cố',
   metricLabel = 'Throughput',
   secondaryMetricLabel = 'Kết nối WebSocket',
 }) {
@@ -27,32 +28,27 @@ export function AreaLineChart({
 
   if (!data || data.length === 0) return null;
 
-  const padding = { top: 25, right: 25, bottom: 40, left: 60 };
+  // Chuẩn hóa danh sách các đường cần vẽ
+  const activeLines = lines && lines.length > 0 ? lines : [
+    { key: yKey, name: metricLabel, color: color, unit: unit },
+    ...(secondaryYKey ? [{ key: secondaryYKey, name: secondaryMetricLabel, color: secondaryColor, unit: secondaryUnit, dashed: true }] : []),
+  ];
+
+  const padding = { top: 25, right: 25, bottom: 40, left: 50 };
   const width = 850;
   const svgHeight = height;
 
   const chartWidth = width - padding.left - padding.right;
   const chartHeight = svgHeight - padding.top - padding.bottom;
 
-  // Max values calculation
-  const rawMax1 = Math.max(...data.map((d) => d[yKey] || 0), 10);
-  const maxY1 = rawMax1 === 0 ? 100 : rawMax1 * 1.2;
-
-  const rawMax2 = secondaryYKey ? Math.max(...data.map((d) => d[secondaryYKey] || 0), 10) : 0;
-  const maxY2 = rawMax2 === 0 ? 100 : rawMax2 * 1.2;
+  // Max value calculation across all lines
+  const allValues = data.flatMap((d) => activeLines.map((l) => Number(d[l.key]) || 0));
+  const rawMax = Math.max(...allValues, 6);
+  const maxY = Math.ceil(rawMax * 1.25);
 
   // Coordinate mappings
   const getX = (index) => padding.left + (index / (data.length - 1 || 1)) * chartWidth;
-  const getY1 = (val) => padding.top + chartHeight - ((val || 0) / maxY1) * chartHeight;
-  const getY2 = (val) => padding.top + chartHeight - ((val || 0) / maxY2) * chartHeight;
-
-  // Build SVG paths
-  const points1 = data.map((d, i) => `${getX(i)},${getY1(d[yKey])}`);
-  const linePath1 = `M ${points1.join(' L ')}`;
-  const areaPath1 = `${linePath1} L ${getX(data.length - 1)},${padding.top + chartHeight} L ${getX(0)},${padding.top + chartHeight} Z`;
-
-  const points2 = secondaryYKey ? data.map((d, i) => `${getX(i)},${getY2(d[secondaryYKey])}`) : [];
-  const linePath2 = secondaryYKey ? `M ${points2.join(' L ')}` : '';
+  const getY = (val) => padding.top + chartHeight - ((Number(val) || 0) / (maxY || 1)) * chartHeight;
 
   const gridLineColor = isDark ? '#1E293B' : '#E2E8F0';
   const textColor = isDark ? '#94A3B8' : '#64748B';
@@ -65,16 +61,18 @@ export function AreaLineChart({
         onMouseLeave={() => setHoverIndex(null)}
       >
         <defs>
-          <linearGradient id={`areaGrad_${yKey}`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={color} stopOpacity={0.45} />
-            <stop offset="100%" stopColor={color} stopOpacity={0.01} />
-          </linearGradient>
+          {activeLines.map((l, idx) => (
+            <linearGradient key={l.key || idx} id={`areaGrad_${l.key}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={l.color} stopOpacity={0.35} />
+              <stop offset="100%" stopColor={l.color} stopOpacity={0.01} />
+            </linearGradient>
+          ))}
         </defs>
 
         {/* Horizontal grid lines */}
         {[0, 0.25, 0.5, 0.75, 1].map((ratio, i) => {
           const y = padding.top + chartHeight * (1 - ratio);
-          const val = Math.round(maxY1 * ratio);
+          const val = Math.round(maxY * ratio);
           return (
             <g key={i}>
               <line
@@ -94,42 +92,41 @@ export function AreaLineChart({
                 fontSize={11}
                 fontFamily="inherit"
               >
-                {val >= 1000 ? `${(val / 1000).toFixed(1)}k` : val}
+                {val}
               </text>
             </g>
           );
         })}
 
-        {/* Area fill */}
-        <path d={areaPath1} fill={`url(#areaGrad_${yKey})`} />
+        {/* Area fill for the first line */}
+        {activeLines.length > 0 && (() => {
+          const firstLine = activeLines[0];
+          const pts = data.map((d, i) => `${getX(i)},${getY(d[firstLine.key])}`);
+          const areaPath = `M ${pts.join(' L ')} L ${getX(data.length - 1)},${padding.top + chartHeight} L ${getX(0)},${padding.top + chartHeight} Z`;
+          return <path d={areaPath} fill={`url(#areaGrad_${firstLine.key})`} />;
+        })()}
 
-        {/* Primary Line */}
-        <path
-          d={linePath1}
-          fill="none"
-          stroke={color}
-          strokeWidth={3}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        {/* Secondary Line */}
-        {secondaryYKey && (
-          <path
-            d={linePath2}
-            fill="none"
-            stroke={secondaryColor}
-            strokeWidth={2.2}
-            strokeDasharray="5 5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        )}
+        {/* Lines */}
+        {activeLines.map((l, idx) => {
+          const pts = data.map((d, i) => `${getX(i)},${getY(d[l.key])}`);
+          const linePath = `M ${pts.join(' L ')}`;
+          return (
+            <path
+              key={l.key || idx}
+              d={linePath}
+              fill="none"
+              stroke={l.color}
+              strokeWidth={idx === 0 ? 3 : 2.2}
+              strokeDasharray={l.dashed ? '5 5' : undefined}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          );
+        })}
 
         {/* X-axis labels & vertical hover lines */}
         {data.map((d, i) => {
           const x = getX(i);
-          const y1 = getY1(d[yKey]);
           const isHovered = hoverIndex === i;
 
           return (
@@ -148,7 +145,7 @@ export function AreaLineChart({
                 x={x}
                 y={svgHeight - 12}
                 textAnchor="middle"
-                fill={isHovered ? color : textColor}
+                fill={isHovered ? (activeLines[0]?.color || '#0B72E7') : textColor}
                 fontSize={11}
                 fontWeight={isHovered ? 700 : 400}
                 fontFamily="inherit"
@@ -164,21 +161,21 @@ export function AreaLineChart({
                     y1={padding.top}
                     x2={x}
                     y2={padding.top + chartHeight}
-                    stroke={color}
+                    stroke={activeLines[0]?.color || '#0B72E7'}
                     strokeWidth={1.5}
                     strokeDasharray="3 3"
                   />
-                  <circle cx={x} cy={y1} r={6} fill={color} stroke="#FFFFFF" strokeWidth={2.5} />
-                  {secondaryYKey && (
+                  {activeLines.map((l, lIdx) => (
                     <circle
+                      key={lIdx}
                       cx={x}
-                      cy={getY2(d[secondaryYKey])}
+                      cy={getY(d[l.key])}
                       r={5}
-                      fill={secondaryColor}
+                      fill={l.color}
                       stroke="#FFFFFF"
                       strokeWidth={2}
                     />
-                  )}
+                  ))}
                 </>
               )}
             </g>
@@ -192,7 +189,7 @@ export function AreaLineChart({
           style={{
             position: 'absolute',
             top: -10,
-            left: `${Math.min(80, Math.max(12, (hoverIndex / (data.length - 1 || 1)) * 100))}%`,
+            left: `${Math.min(75, Math.max(15, (hoverIndex / (data.length - 1 || 1)) * 100))}%`,
             transform: 'translateX(-50%)',
             backgroundColor: isDark ? '#0F172A' : '#FFFFFF',
             border: `1px solid ${isDark ? '#334155' : '#CBD5E1'}`,
@@ -202,28 +199,32 @@ export function AreaLineChart({
             pointerEvents: 'none',
             zIndex: 10,
             fontSize: 12,
-            minWidth: 170,
+            minWidth: 190,
           }}
         >
           <div style={{ fontWeight: 700, marginBottom: 6, color: isDark ? '#F1F5F9' : '#0F172A', borderBottom: `1px solid ${isDark ? '#334155' : '#F1F5F9'}`, paddingBottom: 4 }}>
             Mốc: {data[hoverIndex][xKey]}
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, color: color, fontWeight: 600 }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              <span style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: color }} />
-              <span>{metricLabel}:</span>
-            </span>
-            <span>{data[hoverIndex][yKey]?.toLocaleString()} {unit}</span>
-          </div>
-          {secondaryYKey && (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, color: secondaryColor, fontWeight: 600, marginTop: 4 }}>
+          {activeLines.map((l, lIdx) => (
+            <div
+              key={lIdx}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: 12,
+                color: l.color,
+                fontWeight: 600,
+                marginTop: lIdx > 0 ? 4 : 0,
+              }}
+            >
               <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <span style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: secondaryColor }} />
-                <span>{secondaryMetricLabel}:</span>
+                <span style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: l.color, flexShrink: 0 }} />
+                <span>{l.name}:</span>
               </span>
-              <span>{data[hoverIndex][secondaryYKey]?.toLocaleString()} {secondaryUnit}</span>
+              <span>{data[hoverIndex][l.key]?.toLocaleString()} {l.unit || unit}</span>
             </div>
-          )}
+          ))}
         </div>
       )}
     </div>

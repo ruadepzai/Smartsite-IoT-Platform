@@ -128,12 +128,12 @@ export default function TenantAlertSeverityReport() {
     });
   }, [filteredTable]);
 
-  // Xu hướng theo tuần (30 ngày gần nhất)
+  // Xu hướng sự cố theo tuần (30 ngày gần nhất — BR-T31)
   const trendData = [
-    { time: 'Tuần 1', throughput: 2, wsConnections: 4 },
-    { time: 'Tuần 2', throughput: 1, wsConnections: 3 },
-    { time: 'Tuần 3', throughput: 2, wsConnections: 5 },
-    { time: 'Tuần 4', throughput: 1, wsConnections: 2 },
+    { time: 'Tuần 1', critical: 2, warning: 4, info: 5 },
+    { time: 'Tuần 2', critical: 1, warning: 3, info: 4 },
+    { time: 'Tuần 3', critical: 2, warning: 5, info: 6 },
+    { time: 'Tuần 4', critical: 1, warning: 2, info: 5 },
   ];
 
   // Xuất file Excel (.xlsx) — Không giới hạn số dòng (BR-T40)
@@ -278,9 +278,11 @@ export default function TenantAlertSeverityReport() {
                 data={trendData}
                 xKey="time"
                 lines={[
-                  { key: 'throughput', name: 'Critical (Khẩn cấp)', color: '#DC2626' },
-                  { key: 'wsConnections', name: 'Warning (Cảnh báo)', color: '#F59E0B' },
+                  { key: 'critical', name: 'Critical (Khẩn cấp)', color: '#DC2626', unit: 'sự cố' },
+                  { key: 'warning', name: 'Warning (Cảnh báo)', color: '#F59E0B', dashed: true, unit: 'sự cố' },
+                  { key: 'info', name: 'Info (Thông tin)', color: '#0B72E7', unit: 'sự kiện' },
                 ]}
+                unit="sự cố"
               />
             </div>
           </Card>
