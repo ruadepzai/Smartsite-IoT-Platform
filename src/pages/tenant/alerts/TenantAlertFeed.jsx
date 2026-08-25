@@ -127,7 +127,7 @@ export default function TenantAlertFeed() {
   ];
 
   const filteredFeed = useMemo(() => {
-    return feedItems.filter((item) => {
+    const list = feedItems.filter((item) => {
       const term = searchText.toLowerCase().trim();
       const matchSearch =
         !term ||
@@ -142,6 +142,18 @@ export default function TenantAlertFeed() {
         (filterActor === 'SYSTEM' ? item.isSystem : !item.isSystem);
 
       return matchSearch && matchSeverity && matchActor;
+    });
+
+    // Logic nghiệp vụ: Sắp xếp theo dòng thời gian giảm dần (Mới nhất lên đầu — Reverse Chronological)
+    return list.sort((a, b) => {
+      const parseDate = (dStr) => {
+        if (!dStr) return 0;
+        const [datePart, timePart] = dStr.split(' ');
+        const [d, m, y] = datePart.split('/');
+        const [h, min, s] = (timePart || '00:00:00').split(':');
+        return new Date(y, m - 1, d, h, min, s).getTime();
+      };
+      return parseDate(b.timestamp) - parseDate(a.timestamp);
     });
   }, [feedItems, searchText, filterSeverity, filterActor]);
 
