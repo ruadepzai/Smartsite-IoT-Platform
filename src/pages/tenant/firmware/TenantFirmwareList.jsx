@@ -331,15 +331,31 @@ export default function TenantFirmwareList() {
             label={
               <Space>
                 <span style={{ fontWeight: 600 }}>Tệp tin Firmware (.bin, .hex)</span>
-                <Tag color="orange" style={{ fontSize: 11 }}>
-                  [TODO — chờ xác nhận nghiệp vụ: dung lượng tối đa]
+                <Tag color="blue" style={{ fontSize: 11 }}>
+                  Tối đa 50MB
                 </Tag>
               </Space>
             }
             rules={[{ required: true, message: 'Vui lòng chọn tệp tin firmware!' }]}
+            extra={
+              <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 4 }}>
+                Hỗ trợ định dạng .bin, .hex. Dung lượng tối đa: 50MB (EF-01 / UC-MT2-08).
+              </Text>
+            }
           >
-            <Upload beforeUpload={() => false} maxCount={1}>
-              <Button icon={<UploadCloud size={16} />}>Chọn tệp Firmware từ máy tính</Button>
+            <Upload
+              beforeUpload={(file) => {
+                const isLt50M = file.size / 1024 / 1024 <= 50;
+                if (!isLt50M) {
+                  message.error('Dung lượng tệp firmware vượt quá giới hạn 50MB! (EF-01 / UC-MT2-08)');
+                  return Upload.LIST_IGNORE;
+                }
+                return false;
+              }}
+              maxCount={1}
+              accept=".bin,.hex"
+            >
+              <Button icon={<UploadCloud size={16} />}>Chọn tệp Firmware từ máy tính (Tối đa 50MB)</Button>
             </Upload>
           </Form.Item>
 
