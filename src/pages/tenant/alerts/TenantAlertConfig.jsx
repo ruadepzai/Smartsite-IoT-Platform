@@ -65,7 +65,7 @@ export default function TenantAlertConfig() {
       unit: '°C',
       severity: 'WARNING',
       channels: ['Email', 'In-App'],
-      escalationMinutes: 10,
+      escalationMinutes: null,
       enabled: true,
     },
     {
@@ -89,7 +89,7 @@ export default function TenantAlertConfig() {
       unit: '',
       severity: 'INFO',
       channels: ['In-App'],
-      escalationMinutes: 15,
+      escalationMinutes: null,
       enabled: false,
     },
   ]);
@@ -129,7 +129,7 @@ export default function TenantAlertConfig() {
       unit: rule.unit,
       severity: rule.severity,
       channels: rule.channels,
-      escalationMinutes: rule.escalationMinutes,
+      escalationMinutes: rule.severity === 'CRITICAL' ? (rule.escalationMinutes || 5) : null,
     });
     setModalVisible(true);
   };
@@ -140,9 +140,9 @@ export default function TenantAlertConfig() {
     if (sev === 'CRITICAL') {
       form.setFieldsValue({ channels: ['SMS', 'Email'], escalationMinutes: 5 });
     } else if (sev === 'WARNING') {
-      form.setFieldsValue({ channels: ['Email'], escalationMinutes: 10 });
+      form.setFieldsValue({ channels: ['Email'], escalationMinutes: null });
     } else {
-      form.setFieldsValue({ channels: ['In-App'], escalationMinutes: 15 });
+      form.setFieldsValue({ channels: ['In-App'], escalationMinutes: null });
     }
   };
 
@@ -160,27 +160,25 @@ export default function TenantAlertConfig() {
       return;
     }
 
+    const payload = {
+      ...values,
+      escalationMinutes: values.severity === 'CRITICAL' ? (values.escalationMinutes || 5) : null,
+    };
+
     if (modalMode === 'create') {
       const newRule = {
-        id: `RULE-${Date.now().toString().slice(-4)}`,
-        metric: values.metric,
-        profile: values.profile,
-        minVal: values.minVal,
-        maxVal: values.maxVal,
-        unit: values.unit || '',
-        severity: values.severity,
-        channels: values.channels || ['Email'],
-        escalationMinutes: values.escalationMinutes || 5,
+        id: `RULE-${String(rules.length + 1).padStart(2, '0')}`,
+        ...payload,
         enabled: true,
       };
       setRules([...rules, newRule]);
-      message.success(`Tạo cấu hình cảnh báo "${values.metric}" thành công. (UC-MT3-07)`);
+      message.success(`Đã thêm cấu hình ngưỡng mới: ${newRule.metric}`);
     } else {
-      const updated = rules.map((r) => (r.id === editingRule.id ? { ...r, ...values } : r));
-      setRules(updated);
-      message.success(`Cập nhật cấu hình cảnh báo "${values.metric}" thành công.`);
+      setRules(
+        rules.map((r) => (r.id === editingRule.id ? { ...r, ...payload } : r))
+      );
+      message.success(`Đã cập nhật cấu hình ngưỡng: ${editingRule.metric}`);
     }
-
     setModalVisible(false);
     form.resetFields();
   };
@@ -446,10 +444,32 @@ export default function TenantAlertConfig() {
             <Col span={12}>
               <Form.Item
                 name="escalationMinutes"
-                label={<span style={{ fontWeight: 600 }}>Thời gian Escalation (Phút — BR-T28)</span>}
-                rules={[{ required: true }]}
+                label={<span style={{ fontWeight: 600 }}>Thời gian Escalation (BR-T28 / BR-T36)</span>}
+                rules={[
+                  {
+                    required: selectedSeverity === 'CRITICAL',
+                    message: 'Vui lòng nhập thời gian Escalation cho sự cố Critical!',
+                  },
+                ]}
+                extra={
+                  selectedSeverity === 'CRITICAL' ? (
+                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 2 }}>
+                      Tự động 2 bước: phút 5 nhắc lại, phút 7 báo toàn bộ Admin (BR-T36)
+                    </Text>
+                  ) : (
+                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 2, color: '#94A3B8' }}>
+                      Chỉ áp dụng tự động Escalation cho mức CRITICAL (BR-T28 / BR-T36)
+                    </Text>
+                  )
+                }
               >
-                <InputNumber min={1} max={60} style={{ width: '100%' }} />
+                <InputNumber
+                  min={1}
+                  max={60}
+                  style={{ width: '100%' }}
+                  disabled={selectedSeverity !== 'CRITICAL'}
+                  placeholder={selectedSeverity === 'CRITICAL' ? '5 phút' : 'Không áp dụng'}
+                />
               </Form.Item>
             </Col>
           </Row>
