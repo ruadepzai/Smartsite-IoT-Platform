@@ -325,10 +325,10 @@ export default function TenantAlertCenter() {
       {/* Drawer Chi Tiết & Xử Lý Cảnh Báo (MH-MT3-04) */}
       <Drawer
         title={
-          <Space>
-            <ShieldAlert size={18} style={{ color: selectedAlert?.severity === 'CRITICAL' ? '#DC2626' : '#F59E0B' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <ShieldAlert size={18} style={{ color: selectedAlert?.severity === 'CRITICAL' ? '#DC2626' : '#F59E0B', flexShrink: 0 }} />
             <span>Chi Tiết Sự Cố — {selectedAlert?.id}</span>
-          </Space>
+          </div>
         }
         placement="right"
         width={580}
