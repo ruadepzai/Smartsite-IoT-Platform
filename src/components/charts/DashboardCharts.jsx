@@ -484,14 +484,25 @@ export function DonutBreakdownChart({
         </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minWidth: 160 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 260, flex: 1 }}>
         {data.map((item, idx) => (
-          <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 12 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              <span style={{ width: 10, height: 10, borderRadius: 2, backgroundColor: item.color }} />
-              <span style={{ fontWeight: 500 }}>{item.name}</span>
+          <div
+            key={idx}
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              fontSize: 12,
+              gap: 16,
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ width: 10, height: 10, borderRadius: 2, backgroundColor: item.color, flexShrink: 0 }} />
+              <span style={{ fontWeight: 500, whiteSpace: 'nowrap' }}>{item.name}</span>
             </div>
-            <span style={{ fontWeight: 600 }}>{item.percentage}% {item.revenue ? `(${item.revenue})` : item.detail ? `(${item.detail})` : ''}</span>
+            <span style={{ fontWeight: 600, whiteSpace: 'nowrap', paddingLeft: 16 }}>
+              {item.percentage}% {item.revenue ? `(${item.revenue})` : item.detail ? `(${item.detail})` : ''}
+            </span>
           </div>
         ))}
       </div>

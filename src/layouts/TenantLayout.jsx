@@ -416,16 +416,25 @@ export default function TenantLayout() {
 
             {/* Notification Bell */}
             <Tooltip title={criticalCount > 0 ? `Có ${criticalCount} cảnh báo Critical chưa xử lý` : 'Trung tâm cảnh báo'}>
-              <Button
-                type="text"
-                shape="circle"
-                icon={
-                  <Badge count={criticalCount} size="small">
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Badge count={criticalCount} size="small" offset={[-3, 4]}>
+                  <Button
+                    type="text"
+                    shape="circle"
+                    onClick={() => navigate('/tenant/alerts')}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: 34,
+                      height: 34,
+                      padding: 0,
+                    }}
+                  >
                     <Bell size={18} style={{ color: criticalCount > 0 ? '#DC2626' : undefined }} />
-                  </Badge>
-                }
-                onClick={() => navigate('/tenant/alerts')}
-              />
+                  </Button>
+                </Badge>
+              </div>
             </Tooltip>
 
             {/* Theme Toggle */}
@@ -433,26 +442,45 @@ export default function TenantLayout() {
               <Button
                 type="text"
                 shape="circle"
-                icon={isDark ? <Sun size={18} /> : <Moon size={18} />}
                 onClick={toggleTheme}
-              />
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: 34,
+                  height: 34,
+                  padding: 0,
+                }}
+              >
+                {isDark ? <Sun size={18} style={{ color: '#FDB022' }} /> : <Moon size={18} style={{ color: '#64748B' }} />}
+              </Button>
             </Tooltip>
 
             {/* User Profile */}
             <Dropdown menu={{ items: userMenuItems }} trigger={['click']} placement="bottomRight">
-              <Space style={{ cursor: 'pointer' }} size={8}>
-                <Avatar style={{ backgroundColor: '#0B72E7', fontWeight: 600 }}>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  cursor: 'pointer',
+                  padding: '3px 8px',
+                  borderRadius: 8,
+                  height: 34,
+                }}
+              >
+                <Avatar style={{ backgroundColor: '#0B72E7', fontWeight: 600, fontSize: 12.5, flexShrink: 0 }} size={28}>
                   NL
                 </Avatar>
-                <div style={{ display: 'none' }} className="lg:block text-left">
-                  <Text strong style={{ fontSize: 13, display: 'block', lineHeight: 1.2 }}>
+                <div style={{ display: 'none', lineHeight: 1.2, textAlign: 'left' }} className="lg:block">
+                  <Text strong style={{ fontSize: 12.5, display: 'block' }}>
                     Nguyễn Hoàng Long
                   </Text>
-                  <Text type="secondary" style={{ fontSize: 11 }}>
+                  <Text type="secondary" style={{ fontSize: 10.5 }}>
                     Tenant Admin (AT-03)
                   </Text>
                 </div>
-              </Space>
+              </div>
             </Dropdown>
           </Space>
         </Header>

@@ -238,27 +238,27 @@ export default function TenantMttrReport() {
       {/* Header trang */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
         <div>
-          <Space size={8} align="center">
-            <Clock size={24} style={{ color: '#0B72E7' }} />
-            <Title level={4} style={{ margin: 0 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Clock size={22} style={{ color: '#0B72E7', flexShrink: 0 }} />
+            <Title level={4} style={{ margin: 0, lineHeight: 1.2 }}>
               Báo Cáo Thời Gian Phản Hồi (MTTR) & Hiệu Suất
             </Title>
-          </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          </div>
+          <Text type="secondary" style={{ fontSize: 12.5, display: 'block', marginTop: 2 }}>
             Đo lường thời gian trung bình tiếp nhận xử lý sự cố (Mean Time To Resolve) và tỷ lệ tuân thủ cam kết chất lượng dịch vụ SLA (MH-MT5-03)
           </Text>
         </div>
 
-        <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+        <Space align="center">
+          <Tag color="blue" style={{ fontSize: 12.5, padding: '3px 8px', borderRadius: 6 }}>
             MH-MT5-03
           </Tag>
           <Button
             type="primary"
-            icon={<FileSpreadsheet size={16} />}
+            icon={<FileSpreadsheet size={15} />}
             onClick={handleExportExcel}
             disabled={filteredData.length === 0}
-            style={{ backgroundColor: '#059669', borderColor: '#059669', borderRadius: 8, height: 38 }}
+            style={{ backgroundColor: '#059669', borderColor: '#059669', borderRadius: 6, height: 34 }}
           >
             Xuất Báo Cáo Excel (.xlsx — BR-T40)
           </Button>

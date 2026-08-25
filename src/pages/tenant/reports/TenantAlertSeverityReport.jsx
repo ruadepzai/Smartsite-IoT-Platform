@@ -218,27 +218,27 @@ export default function TenantAlertSeverityReport() {
       {/* Header trang */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
         <div>
-          <Space size={8} align="center">
-            <ShieldAlert size={24} style={{ color: '#DC2626' }} />
-            <Title level={4} style={{ margin: 0 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <ShieldAlert size={22} style={{ color: '#DC2626', flexShrink: 0 }} />
+            <Title level={4} style={{ margin: 0, lineHeight: 1.2 }}>
               Báo Cáo Thống Kê Cảnh Báo Theo Mức Độ
             </Title>
-          </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          </div>
+          <Text type="secondary" style={{ fontSize: 12.5, display: 'block', marginTop: 2 }}>
             Đánh giá phân bố mức độ nghiêm trọng (Critical/Warning/Info), tần suất kích hoạt escalation và tỷ lệ giải quyết sự cố (MH-MT5-02)
           </Text>
         </div>
 
-        <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+        <Space align="center">
+          <Tag color="blue" style={{ fontSize: 12.5, padding: '3px 8px', borderRadius: 6 }}>
             MH-MT5-02
           </Tag>
           <Button
             type="primary"
-            icon={<FileSpreadsheet size={16} />}
+            icon={<FileSpreadsheet size={15} />}
             onClick={handleExportExcel}
             disabled={filteredTable.length === 0}
-            style={{ backgroundColor: '#059669', borderColor: '#059669', borderRadius: 8, height: 38 }}
+            style={{ backgroundColor: '#059669', borderColor: '#059669', borderRadius: 6, height: 34 }}
           >
             Xuất Báo Cáo Excel (.xlsx — BR-T40)
           </Button>
@@ -250,10 +250,10 @@ export default function TenantAlertSeverityReport() {
         <Col xs={24} lg={10}>
           <Card
             title={
-              <Space>
-                <PieChartIcon size={16} style={{ color: '#0B72E7' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <PieChartIcon size={16} style={{ color: '#0B72E7', flexShrink: 0 }} />
                 <span>Tỷ Trọng Cảnh Báo Theo Mức Độ (30 Ngày Qua)</span>
-              </Space>
+              </div>
             }
             style={{ borderRadius: 12, height: '100%' }}
           >
@@ -266,10 +266,10 @@ export default function TenantAlertSeverityReport() {
         <Col xs={24} lg={14}>
           <Card
             title={
-              <Space>
-                <Activity size={16} style={{ color: '#DC2626' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <Activity size={16} style={{ color: '#DC2626', flexShrink: 0 }} />
                 <span>Xu Hướng Sự Cố Phát Sinh Theo Tuần (BR-T31)</span>
-              </Space>
+              </div>
             }
             style={{ borderRadius: 12 }}
           >

@@ -293,27 +293,27 @@ export default function TenantDeviceReport() {
       {/* Header trang */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
         <div>
-          <Space size={8} align="center">
-            <BarChart3 size={24} style={{ color: '#0B72E7' }} />
-            <Title level={4} style={{ margin: 0 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <BarChart3 size={22} style={{ color: '#0B72E7', flexShrink: 0 }} />
+            <Title level={4} style={{ margin: 0, lineHeight: 1.2 }}>
               Báo Cáo Vận Hành Thiết Bị & Uptime
             </Title>
-          </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          </div>
+          <Text type="secondary" style={{ fontSize: 12.5, display: 'block', marginTop: 2 }}>
             Tổng hợp tỷ lệ khả dụng Uptime/Downtime, số lần và thời lượng mất kết nối theo chu kỳ 30 ngày (MH-MT5-01)
           </Text>
         </div>
 
-        <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+        <Space align="center">
+          <Tag color="blue" style={{ fontSize: 12.5, padding: '3px 8px', borderRadius: 6 }}>
             MH-MT5-01
           </Tag>
           <Button
             type="primary"
-            icon={<FileSpreadsheet size={16} />}
+            icon={<FileSpreadsheet size={15} />}
             onClick={handleExportExcel}
             disabled={filteredData.length === 0}
-            style={{ backgroundColor: '#059669', borderColor: '#059669', borderRadius: 8, height: 38 }}
+            style={{ backgroundColor: '#059669', borderColor: '#059669', borderRadius: 6, height: 34 }}
           >
             Xuất Báo Cáo Excel (.xlsx — BR-T40)
           </Button>
