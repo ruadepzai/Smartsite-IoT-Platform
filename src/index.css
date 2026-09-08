@@ -34,3 +34,9 @@ body,
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(100, 116, 139, 0.5);
 }
+
+/* Leaflet Dark Mode Tiles Filter (loại bỏ watermark bắt API Key của CARTO basemaps) */
+.dark-map-tiles {
+  filter: invert(100%) hue-rotate(180deg) brightness(88%) contrast(108%);
+}
+

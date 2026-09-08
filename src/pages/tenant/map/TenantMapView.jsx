@@ -171,21 +171,33 @@ export default function TenantMapView() {
 
     const map = mapInstanceRef.current;
 
-    // Tile Layer: Sử dụng CartoDB Quốc tế trung lập (chuẩn OpenStreetMap & CARTO US/EU - Không chứa đường ranh giới phi pháp)
+    // Tile Layer: Ưu tiên CARTO nếu có VITE_CARTO_API_KEY, mặc định dùng OpenStreetMap chuẩn quốc tế (không yêu cầu API key, không watermark)
     map.eachLayer((layer) => {
       if (layer instanceof L.TileLayer) {
         map.removeLayer(layer);
       }
     });
 
-    const tileUrl = isDark
-      ? 'https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png'
-      : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png';
-
-    const tileLayer = L.tileLayer(tileUrl, {
+    const cartoKey = import.meta.env.VITE_CARTO_API_KEY;
+    let tileUrl;
+    const tileOptions = {
       maxZoom: 19,
-      subdomains: 'abcd',
-    });
+    };
+
+    if (cartoKey) {
+      tileUrl = isDark
+        ? `https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png?key=${cartoKey}`
+        : `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=${cartoKey}`;
+      tileOptions.subdomains = 'abcd';
+    } else {
+      tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+      tileOptions.subdomains = 'abc';
+      if (isDark) {
+        tileOptions.className = 'dark-map-tiles';
+      }
+    }
+
+    const tileLayer = L.tileLayer(tileUrl, tileOptions);
     tileLayer.addTo(map);
 
     // Kích hoạt invalidateSize để tránh lỗi ô gạch màu xám khi chuyển theme hoặc mở lại tab
@@ -444,7 +456,7 @@ export default function TenantMapView() {
                 zIndex: 1000,
               }}
             >
-              © CARTO • OpenStreetMap • SmartSite GIS Vietnam
+              {import.meta.env.VITE_CARTO_API_KEY ? '© CARTO • OpenStreetMap • SmartSite GIS Vietnam' : '© OpenStreetMap • SmartSite GIS Vietnam'}
             </div>
           </Card>
         </Col>
