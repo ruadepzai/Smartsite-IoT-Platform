@@ -45,9 +45,9 @@ export default function EmployeeList() {
   const [filterStatus, setFilterStatus] = useState('all');
   const [filterRole, setFilterRole] = useState('all');
 
-  // State phân trang (20 dòng/trang theo BR-A20)
+  // State phân trang (10 dòng/trang)
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 20;
+  const pageSize = 10;
 
   // State modal Thêm / Sửa
   const [modalOpen, setModalOpen] = useState(false);
@@ -341,7 +341,7 @@ export default function EmployeeList() {
             onChange: (page) => setCurrentPage(page),
             showTotal: (total, range) => (
               <span style={{ color: '#94A3B8', fontSize: 13 }}>
-                Trang {currentPage}/{Math.ceil(total / pageSize) || 1} · {total} tài khoản · 20 dòng/trang
+                Trang {currentPage}/{Math.ceil(total / pageSize) || 1} · {total} tài khoản · 10 dòng/trang
               </span>
             ),
           }}
