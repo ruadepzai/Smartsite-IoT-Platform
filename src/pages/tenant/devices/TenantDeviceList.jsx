@@ -265,9 +265,9 @@ export default function TenantDeviceList() {
         <div>
           <Space size={6}>
             <Cpu size={16} style={{ color: '#0B72E7' }} />
-            <Text strong style={{ fontSize: 13 }}>{name}</Text>
+            <Text strong style={{ fontSize: 14 }}>{name}</Text>
           </Space>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11, marginTop: 2 }}>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12, marginTop: 2 }}>
             Mã định danh (BR-T32): <code>{r.code}</code> • IP: {r.ip}
           </Text>
         </div>
@@ -279,8 +279,8 @@ export default function TenantDeviceList() {
       key: 'category',
       render: (cat, r) => (
         <div>
-          <Tag color="blue" style={{ fontSize: 11 }}>{cat}</Tag>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11, marginTop: 2 }}>
+          <Tag color="blue" style={{ fontSize: 12 }}>{cat}</Tag>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12, marginTop: 2 }}>
             Profile: <code>{r.deviceProfile || 'GW-500-MODBUS'}</code>
           </Text>
         </div>
@@ -296,7 +296,7 @@ export default function TenantDeviceList() {
             <DoorOpen size={12} style={{ color: '#06B6D4' }} />
             <Text strong style={{ fontSize: 12 }}>{room}</Text>
           </Space>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11 }}>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12 }}>
             🏢 {r.building}
           </Text>
         </div>
@@ -378,13 +378,13 @@ export default function TenantDeviceList() {
               Danh Sách Thiết Bị IoT (Device Registry)
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Quản lý đăng ký, sửa thông tin và giám sát trạng thái Online/Offline của toàn bộ thiết bị (MH-MT2-02)
           </Text>
         </div>
 
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MT2-02
           </Tag>
           <Button

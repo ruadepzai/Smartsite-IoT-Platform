@@ -227,8 +227,8 @@ export default function TenantAccount() {
       width: 140,
       render: (t, r) => (
         <Space direction="vertical" size={0}>
-          <Text strong style={{ fontSize: 13 }}>{t}</Text>
-          <Text type="secondary" style={{ fontSize: 11 }}>{r.dateGroup}</Text>
+          <Text strong style={{ fontSize: 14 }}>{t}</Text>
+          <Text type="secondary" style={{ fontSize: 12 }}>{r.dateGroup}</Text>
         </Space>
       ),
     },
@@ -293,16 +293,16 @@ export default function TenantAccount() {
               Tài Khoản Của Tôi
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Quản lý thông tin cá nhân, cập nhật mật khẩu đăng nhập và theo dõi lịch sử truy cập (MH-MT1-03)
           </Text>
         </div>
 
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MT1-03
           </Tag>
-          <Tag color="geekblue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="geekblue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             FN-MT1-04 / 05 / 06
           </Tag>
         </Space>
@@ -316,7 +316,7 @@ export default function TenantAccount() {
               size={72}
               style={{
                 backgroundColor: '#0B72E7',
-                fontSize: 28,
+                fontSize: 18,
                 fontWeight: 700,
               }}
             >

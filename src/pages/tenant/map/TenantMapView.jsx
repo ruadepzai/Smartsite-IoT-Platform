@@ -322,13 +322,13 @@ export default function TenantMapView() {
               Bản Đồ Điểm Giám Sát IoT (GIS Facility Map)
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Bản đồ GIS Việt Nam hiển thị trực quan tình trạng vận hành thiết bị tại các Tòa nhà theo tọa độ GPS (MH-MT2-04)
           </Text>
         </div>
 
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MT2-04
           </Tag>
         </Space>
@@ -390,15 +390,15 @@ export default function TenantMapView() {
               <Space size={12}>
                 <Space size={5}>
                   <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#10B981', display: 'inline-block' }}></span>
-                  <Text style={{ fontSize: 11 }}>Bình thường</Text>
+                  <Text style={{ fontSize: 12 }}>Bình thường</Text>
                 </Space>
                 <Space size={5}>
                   <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#F59E0B', display: 'inline-block' }}></span>
-                  <Text style={{ fontSize: 11 }}>Cảnh báo</Text>
+                  <Text style={{ fontSize: 12 }}>Cảnh báo</Text>
                 </Space>
                 <Space size={5}>
                   <span style={{ width: 9, height: 9, borderRadius: '50%', background: '#EF4444', display: 'inline-block' }}></span>
-                  <Text style={{ fontSize: 11 }}>Báo động</Text>
+                  <Text style={{ fontSize: 12 }}>Báo động</Text>
                 </Space>
               </Space>
             </Space>
@@ -452,7 +452,7 @@ export default function TenantMapView() {
                 padding: '3px 8px',
                 borderRadius: 4,
                 color: '#FFFFFF',
-                fontSize: 10,
+                fontSize: 12,
                 zIndex: 1000,
               }}
             >
@@ -504,22 +504,22 @@ export default function TenantMapView() {
                       }}
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Text strong style={{ fontSize: 13, color: isSelected ? '#0B72E7' : undefined }}>
+                        <Text strong style={{ fontSize: 14, color: isSelected ? '#0B72E7' : undefined }}>
                           {b.name}
                         </Text>
-                        <Tag color={b.status === 'normal' ? 'success' : b.status === 'warning' ? 'warning' : 'error'} style={{ margin: 0, fontSize: 11 }}>
+                        <Tag color={b.status === 'normal' ? 'success' : b.status === 'warning' ? 'warning' : 'error'} style={{ margin: 0, fontSize: 12 }}>
                           {statusLabel}
                         </Tag>
                       </div>
 
-                      <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 4 }}>
+                      <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 4 }}>
                         📍 {b.address}
                       </Text>
 
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 8, fontSize: 12 }}>
                         <Space size={4}>
                           <Cpu size={14} style={{ color: '#0B72E7' }} />
-                          <Text style={{ fontSize: 11 }}>{b.onlineCount}/{b.deviceCount} Thiết bị Online</Text>
+                          <Text style={{ fontSize: 12 }}>{b.onlineCount}/{b.deviceCount} Thiết bị Online</Text>
                         </Space>
                         <Button
                           type="link"
@@ -529,7 +529,7 @@ export default function TenantMapView() {
                             setSelectedBuilding(b);
                             setDrawerVisible(true);
                           }}
-                          style={{ padding: 0, fontSize: 11 }}
+                          style={{ padding: 0, fontSize: 12 }}
                         >
                           Chi tiết &gt;
                         </Button>
@@ -577,7 +577,7 @@ export default function TenantMapView() {
 
             {/* Các phòng trực thuộc */}
             <div>
-              <Text strong style={{ fontSize: 13, display: 'block', marginBottom: 8 }}>
+              <Text strong style={{ fontSize: 14, display: 'block', marginBottom: 8 }}>
                 Các Không Gian / Phòng Trực Thuộc ({selectedBuilding.rooms.length}):
               </Text>
               <Space wrap>
@@ -591,25 +591,25 @@ export default function TenantMapView() {
 
             {/* Tình trạng thiết bị */}
             <div>
-              <Text strong style={{ fontSize: 13, display: 'block', marginBottom: 8 }}>
+              <Text strong style={{ fontSize: 14, display: 'block', marginBottom: 8 }}>
                 Thống Kê Thiết Bị Vận Hành:
               </Text>
               <Row gutter={8}>
                 <Col span={8}>
                   <Card size="small" style={{ textAlign: 'center', borderRadius: 8 }}>
-                    <Text type="secondary" style={{ fontSize: 11 }}>Tổng thiết bị</Text>
+                    <Text type="secondary" style={{ fontSize: 12 }}>Tổng thiết bị</Text>
                     <Title level={4} style={{ margin: '2px 0 0 0', color: '#0B72E7' }}>{selectedBuilding.deviceCount}</Title>
                   </Card>
                 </Col>
                 <Col span={8}>
                   <Card size="small" style={{ textAlign: 'center', borderRadius: 8 }}>
-                    <Text type="secondary" style={{ fontSize: 11 }}>Online</Text>
+                    <Text type="secondary" style={{ fontSize: 12 }}>Online</Text>
                     <Title level={4} style={{ margin: '2px 0 0 0', color: '#10B981' }}>{selectedBuilding.onlineCount}</Title>
                   </Card>
                 </Col>
                 <Col span={8}>
                   <Card size="small" style={{ textAlign: 'center', borderRadius: 8 }}>
-                    <Text type="secondary" style={{ fontSize: 11 }}>Cảnh báo</Text>
+                    <Text type="secondary" style={{ fontSize: 12 }}>Cảnh báo</Text>
                     <Title level={4} style={{ margin: '2px 0 0 0', color: selectedBuilding.criticalCount > 0 ? '#DC2626' : '#F59E0B' }}>
                       {selectedBuilding.warningCount + selectedBuilding.criticalCount}
                     </Title>

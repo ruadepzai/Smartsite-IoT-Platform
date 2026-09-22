@@ -215,7 +215,7 @@ export default function PlanList() {
       render: (max_devices) => (
         <Space size={6}>
           <Cpu size={15} style={{ color: '#0B72E7' }} />
-          <Text strong style={{ fontSize: 13 }}>
+          <Text strong style={{ fontSize: 14 }}>
             {max_devices} thiết bị
           </Text>
         </Space>
@@ -229,7 +229,7 @@ export default function PlanList() {
       render: (max_users) => (
         <Space size={6}>
           <Users size={15} style={{ color: '#16A34A' }} />
-          <Text strong style={{ fontSize: 13 }}>
+          <Text strong style={{ fontSize: 14 }}>
             {max_users} tài khoản
           </Text>
         </Space>
@@ -241,7 +241,7 @@ export default function PlanList() {
       key: 'price',
       width: 180,
       render: (price) => (
-        <Text strong style={{ color: '#0B72E7', fontSize: 13 }}>
+        <Text strong style={{ color: '#0B72E7', fontSize: 14 }}>
           {price || 'Liên hệ'}
         </Text>
       ),
@@ -289,7 +289,7 @@ export default function PlanList() {
           </Text>
         </div>
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MA3-01
           </Tag>
           <Button
@@ -307,7 +307,7 @@ export default function PlanList() {
       <div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
           <Sparkles size={18} style={{ color: '#0B72E7' }} />
-          <Text strong style={{ fontSize: 15 }}>
+          <Text strong style={{ fontSize: 14 }}>
             Các gói dịch vụ tiêu biểu (Catalog Packages)
           </Text>
         </div>
@@ -345,14 +345,14 @@ export default function PlanList() {
                 >
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
-                      <Text strong style={{ fontSize: 17 }}>
+                      <Text strong style={{ fontSize: 18 }}>
                         {p.name}
                       </Text>
                       {p.badge && <Tag color={badgeColor}>{p.badge}</Tag>}
                     </div>
 
                     <div style={{ margin: '6px 0 14px 0' }}>
-                      <span style={{ fontSize: 20, fontWeight: 700, color: '#0B72E7' }}>
+                      <span style={{ fontSize: 18, fontWeight: 700, color: '#0B72E7' }}>
                         {p.price || 'Liên hệ'}
                       </span>
                     </div>
@@ -369,11 +369,11 @@ export default function PlanList() {
 
                     {/* Tiêu chí tài nguyên */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 20 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14 }}>
                         <Check size={16} style={{ color: '#16A34A', flexShrink: 0 }} />
                         <span>Hạn mức: <strong>{p.max_devices}</strong> thiết bị</span>
                       </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14 }}>
                         <Check size={16} style={{ color: '#16A34A', flexShrink: 0 }} />
                         <span>Hạn mức: <strong>{p.max_users}</strong> tài khoản</span>
                       </div>
@@ -408,7 +408,7 @@ export default function PlanList() {
       <div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
           <Layers size={18} style={{ color: '#0B72E7' }} />
-          <Text strong style={{ fontSize: 15 }}>
+          <Text strong style={{ fontSize: 14 }}>
             Bảng quản lý chi tiết Catalog gói dịch vụ
           </Text>
         </div>

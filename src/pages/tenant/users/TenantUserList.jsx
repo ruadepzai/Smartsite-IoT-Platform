@@ -199,9 +199,9 @@ export default function TenantUserList() {
             ) : (
               <User size={16} style={{ color: '#10B981' }} />
             )}
-            <Text strong style={{ fontSize: 13 }}>{name}</Text>
+            <Text strong style={{ fontSize: 14 }}>{name}</Text>
           </Space>
-          <div style={{ fontSize: 11, color: '#64748B', marginTop: 2 }}>
+          <div style={{ fontSize: 12, color: '#64748B', marginTop: 2 }}>
             <Mail size={11} style={{ display: 'inline', marginRight: 3, verticalAlign: '-1px' }} />
             <span>{r.email}</span> • <Phone size={11} style={{ display: 'inline', marginRight: 3, verticalAlign: '-1px' }} />
             <span>{r.phone || 'Chưa cập nhật'}</span>
@@ -238,7 +238,7 @@ export default function TenantUserList() {
         return (
           <Space size={4} wrap>
             {rooms.map((rm, i) => (
-              <Tag key={i} color="cyan" style={{ fontSize: 11 }}>{rm}</Tag>
+              <Tag key={i} color="cyan" style={{ fontSize: 12 }}>{rm}</Tag>
             ))}
           </Space>
         );
@@ -301,13 +301,13 @@ export default function TenantUserList() {
               Quản Lý Người Dùng & Phân Quyền Phòng
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Quản trị danh sách nhân viên nội bộ, cấp quyền truy cập theo từng Phòng giám sát (MH-MT4-01 & MH-MT4-02)
           </Text>
         </div>
 
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MT4-01 / 02
           </Tag>
           <Button
@@ -491,7 +491,7 @@ export default function TenantUserList() {
                 </Select>
               </Form.Item>
               {editingUser?.role === 'AT-03' && (
-                <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: -10 }}>
+                <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: -10 }}>
                   🔒 Tenant Admin không thể tự vô hiệu hóa tài khoản của chính mình (BR-T22).
                 </Text>
               )}

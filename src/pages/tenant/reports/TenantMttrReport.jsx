@@ -155,9 +155,9 @@ export default function TenantMttrReport() {
         <div>
           <Space size={6}>
             <UserCheck size={16} style={{ color: '#0B72E7' }} />
-            <Text strong style={{ fontSize: 13 }}>{h}</Text>
+            <Text strong style={{ fontSize: 14 }}>{h}</Text>
           </Space>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11, marginTop: 2 }}>{r.role}</Text>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12, marginTop: 2 }}>{r.role}</Text>
         </div>
       ),
     },
@@ -175,7 +175,7 @@ export default function TenantMttrReport() {
       render: (c, r) => (
         <div>
           <strong>{c} sự cố</strong>
-          <div style={{ fontSize: 11, color: '#64748B', marginTop: 2 }}>
+          <div style={{ fontSize: 12, color: '#64748B', marginTop: 2 }}>
             🔴 {r.criticalHandled} • 🟡 {r.warningHandled} • 🔵 {r.infoHandled}
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function TenantMttrReport() {
         return (
           <Space size={6}>
             <Clock size={14} style={{ color }} />
-            <span style={{ fontWeight: 700, color, fontSize: 13 }}>{t}</span>
+            <span style={{ fontWeight: 700, color, fontSize: 14 }}>{t}</span>
           </Space>
         );
       },
@@ -211,7 +211,7 @@ export default function TenantMttrReport() {
 
         return (
           <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 2 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 2 }}>
               <span style={{ fontWeight: 700, color: strokeColor }}>{rate}% SLA</span>
               <Text type="secondary">Mục tiêu: 95%</Text>
             </div>
@@ -244,13 +244,13 @@ export default function TenantMttrReport() {
               Báo Cáo Thời Gian Phản Hồi (MTTR) & Hiệu Suất
             </Title>
           </div>
-          <Text type="secondary" style={{ fontSize: 12.5, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Đo lường thời gian trung bình tiếp nhận xử lý sự cố (Mean Time To Resolve) và tỷ lệ tuân thủ cam kết chất lượng dịch vụ SLA (MH-MT5-03)
           </Text>
         </div>
 
         <Space align="center">
-          <Tag color="blue" style={{ fontSize: 12.5, padding: '3px 8px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '3px 8px', borderRadius: 6 }}>
             MH-MT5-03
           </Tag>
           <Button

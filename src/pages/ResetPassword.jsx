@@ -124,9 +124,9 @@ export default function ResetPassword() {
             <Title level={3} style={{ margin: 0, color: '#FFFFFF', fontWeight: 700, letterSpacing: '-0.02em' }}>
               Đặt lại mật khẩu
             </Title>
-            <Tag color="blue" style={{ fontSize: 11 }}>MH-MA1-06</Tag>
+            <Tag color="blue" style={{ fontSize: 12 }}>MH-MA1-06</Tag>
           </div>
-          <Text style={{ color: '#94A3B8', fontSize: 13, display: 'block', marginTop: 4 }}>
+          <Text style={{ color: '#94A3B8', fontSize: 12, display: 'block', marginTop: 4 }}>
             Nhập mật khẩu mới an toàn cho tài khoản quản trị của bạn
           </Text>
         </div>
@@ -139,7 +139,7 @@ export default function ResetPassword() {
               showIcon
               message={<span style={{ fontWeight: 600 }}>Liên kết không hợp lệ hoặc đã hết hạn</span>}
               description={
-                <span style={{ fontSize: 13 }}>
+                <span style={{ fontSize: 14 }}>
                   Đường dẫn đã hết hạn, vui lòng yêu cầu lại. (MSG-03)
                 </span>
               }
@@ -213,13 +213,13 @@ export default function ResetPassword() {
                 marginBottom: 16,
               }}
             >
-              <Text style={{ color: '#94A3B8', fontSize: 11, display: 'block', marginBottom: 6, fontWeight: 500 }}>
+              <Text style={{ color: '#94A3B8', fontSize: 12, display: 'block', marginBottom: 6, fontWeight: 500 }}>
                 Yêu cầu độ mạnh mật khẩu (BR-A17):
               </Text>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px 8px' }}>
                 <span
                   style={{
-                    fontSize: 11,
+                    fontSize: 12,
                     color: strengthCheck.lengthOk ? '#3DD68C' : '#64748B',
                     display: 'flex',
                     alignItems: 'center',
@@ -231,7 +231,7 @@ export default function ResetPassword() {
                 </span>
                 <span
                   style={{
-                    fontSize: 11,
+                    fontSize: 12,
                     color: strengthCheck.uppercaseOk ? '#3DD68C' : '#64748B',
                     display: 'flex',
                     alignItems: 'center',
@@ -243,7 +243,7 @@ export default function ResetPassword() {
                 </span>
                 <span
                   style={{
-                    fontSize: 11,
+                    fontSize: 12,
                     color: strengthCheck.numberOk ? '#3DD68C' : '#64748B',
                     display: 'flex',
                     alignItems: 'center',
@@ -255,7 +255,7 @@ export default function ResetPassword() {
                 </span>
                 <span
                   style={{
-                    fontSize: 11,
+                    fontSize: 12,
                     color: strengthCheck.specialOk ? '#3DD68C' : '#64748B',
                     display: 'flex',
                     alignItems: 'center',
@@ -305,7 +305,7 @@ export default function ResetPassword() {
                 style={{
                   height: 44,
                   fontWeight: 600,
-                  fontSize: 15,
+                  fontSize: 14,
                   backgroundColor: '#0B72E7',
                   borderRadius: 8,
                 }}

@@ -89,7 +89,7 @@ export function AreaLineChart({
                 y={y + 4}
                 textAnchor="end"
                 fill={textColor}
-                fontSize={11}
+                fontSize={12}
                 fontFamily="inherit"
               >
                 {val}
@@ -146,7 +146,7 @@ export function AreaLineChart({
                 y={svgHeight - 12}
                 textAnchor="middle"
                 fill={isHovered ? (activeLines[0]?.color || '#0B72E7') : textColor}
-                fontSize={11}
+                fontSize={12}
                 fontWeight={isHovered ? 700 : 400}
                 fontFamily="inherit"
               >
@@ -292,7 +292,7 @@ export function RevenueBarChart({
                 y={y + 4}
                 textAnchor="end"
                 fill={textColor}
-                fontSize={11}
+                fontSize={12}
                 fontFamily="inherit"
               >
                 {val} tr ₫
@@ -329,7 +329,7 @@ export function RevenueBarChart({
                 y={svgHeight - 10}
                 textAnchor="middle"
                 fill={isHovered ? '#0B72E7' : textColor}
-                fontSize={11}
+                fontSize={12}
                 fontWeight={isHovered ? 600 : 400}
                 fontFamily="inherit"
               >
@@ -366,7 +366,7 @@ export function RevenueBarChart({
             MRR: {data[hoverIndex][yKey]} triệu VNĐ
           </div>
           {data[hoverIndex].contracts && (
-            <div style={{ color: '#10B981', fontSize: 11, marginTop: 2 }}>
+            <div style={{ color: '#10B981', fontSize: 12, marginTop: 2 }}>
               Hợp đồng: {data[hoverIndex].contracts} đối tác
             </div>
           )}
@@ -480,8 +480,8 @@ export function DonutBreakdownChart({
             pointerEvents: 'none',
           }}
         >
-          <Text strong style={{ fontSize: 16, lineHeight: 1 }}>{displayValue}</Text>
-          <Text type="secondary" style={{ fontSize: 11, marginTop: 2 }}>{displayLabel}</Text>
+          <Text strong style={{ fontSize: 18, lineHeight: 1 }}>{displayValue}</Text>
+          <Text type="secondary" style={{ fontSize: 12, marginTop: 2 }}>{displayLabel}</Text>
         </div>
       </div>
 

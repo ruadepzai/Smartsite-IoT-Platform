@@ -187,7 +187,7 @@ export default function MyAccount() {
           <Badge
             status={isSuccess ? 'success' : 'error'}
             text={
-              <span style={{ color: isSuccess ? '#3DD68C' : '#F97066', fontSize: 13, fontWeight: 500 }}>
+              <span style={{ color: isSuccess ? '#3DD68C' : '#F97066', fontSize: 14, fontWeight: 500 }}>
                 {status}
               </span>
             }
@@ -221,14 +221,14 @@ export default function MyAccount() {
               marginBottom: 24,
             }}
           >
-            <Avatar size={64} style={{ backgroundColor: '#0B72E7', fontSize: 24, fontWeight: 600 }}>
+            <Avatar size={64} style={{ backgroundColor: '#0B72E7', fontSize: 18, fontWeight: 600 }}>
               {currentUser.name ? currentUser.name.charAt(0) : 'A'}
             </Avatar>
             <div>
               <Title level={5} style={{ margin: '0 0 2px 0' }}>
                 {currentUser.name}
               </Title>
-              <Text type="secondary" style={{ fontSize: 13, display: 'block', marginBottom: 6 }}>
+              <Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 6 }}>
                 {currentUser.email}
               </Text>
               <Space size={6}>
@@ -488,7 +488,7 @@ export default function MyAccount() {
       children: (
         <div style={{ paddingTop: 12 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-            <Text type="secondary" style={{ fontSize: 13 }}>
+            <Text type="secondary" style={{ fontSize: 12 }}>
               Danh sách các phiên đăng nhập trong 30 ngày gần nhất (BR-A20: 50 bản ghi/trang, sắp xếp mới nhất trước)
             </Text>
             {/* Toggle demo empty state */}
@@ -518,7 +518,7 @@ export default function MyAccount() {
               total: historyList.length,
               onChange: (page) => setHistoryPage(page),
               showTotal: (total) => (
-                <span style={{ color: '#94A3B8', fontSize: 13 }}>
+                <span style={{ color: '#94A3B8', fontSize: 12 }}>
                   Tổng cộng: {total} bản ghi đăng nhập · 50 bản ghi/trang
                 </span>
               ),
@@ -553,7 +553,7 @@ export default function MyAccount() {
             Quản lý thông tin hồ sơ cá nhân, bảo mật mật khẩu và theo dõi lịch sử đăng nhập
           </Text>
         </div>
-        <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+        <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
           MH-MA1-05
         </Tag>
       </div>

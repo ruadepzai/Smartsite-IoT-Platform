@@ -137,8 +137,8 @@ export default function SystemDashboard() {
       width: 220,
       render: (name, record) => (
         <div style={{ whiteSpace: 'nowrap' }}>
-          <Text strong style={{ fontSize: 13 }}>{name}</Text>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11 }}>
+          <Text strong style={{ fontSize: 14 }}>{name}</Text>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12 }}>
             IP: {record.ip} • Vị trí: {record.location}
           </Text>
         </div>
@@ -211,7 +211,7 @@ export default function SystemDashboard() {
       width: 130,
       render: (cpu) => (
         <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 2 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 2 }}>
             <span style={{ fontWeight: 600, color: cpu > 80 ? '#DC2626' : undefined }}>{cpu}%</span>
           </div>
           <Progress
@@ -231,7 +231,7 @@ export default function SystemDashboard() {
       width: 130,
       render: (ram) => (
         <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 2 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 2 }}>
             <span style={{ fontWeight: 600, color: ram > 85 ? '#DC2626' : undefined }}>{ram}%</span>
           </div>
           <Progress
@@ -308,7 +308,7 @@ export default function SystemDashboard() {
 
         {/* Action Controls */}
         <Space size={10} wrap>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MA4-02
           </Tag>
 
@@ -389,18 +389,18 @@ export default function SystemDashboard() {
       >
         <Row gutter={[20, 12]} align="middle">
           <Col xs={12} sm={6} md={3}>
-            <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>Khu vực đang xem</Text>
-            <Text strong style={{ fontSize: 13, color: '#0B72E7' }}>
+            <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>Khu vực đang xem</Text>
+            <Text strong style={{ fontSize: 14, color: '#0B72E7' }}>
               {healthData.stationName}
             </Text>
           </Col>
 
           <Col xs={12} sm={6} md={3}>
-            <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>Tình trạng cụm</Text>
+            <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>Tình trạng cụm</Text>
             <Badge
               status={healthData.isOnline ? (isOverloaded ? 'warning' : 'success') : 'error'}
               text={
-                <span style={{ fontWeight: 600, fontSize: 13 }}>
+                <span style={{ fontWeight: 600, fontSize: 14 }}>
                   {healthData.isOnline ? (isOverloaded ? 'Tải cao' : 'Khỏe mạnh') : 'Mất kết nối'}
                 </span>
               }
@@ -408,29 +408,29 @@ export default function SystemDashboard() {
           </Col>
 
           <Col xs={12} sm={6} md={3}>
-            <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>Độ trễ Ping</Text>
-            <Text strong style={{ fontSize: 13, color: healthData.latency === 'Timeout' ? '#DC2626' : '#16A34A' }}>
+            <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>Độ trễ Ping</Text>
+            <Text strong style={{ fontSize: 14, color: healthData.latency === 'Timeout' ? '#DC2626' : '#16A34A' }}>
               {healthData.latency}
             </Text>
           </Col>
 
           <Col xs={12} sm={6} md={3}>
-            <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>Tỷ lệ mất gói</Text>
-            <Text strong style={{ fontSize: 13 }}>
+            <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>Tỷ lệ mất gói</Text>
+            <Text strong style={{ fontSize: 14 }}>
               {healthData.packetLoss}
             </Text>
           </Col>
 
           <Col xs={12} sm={6} md={4}>
-            <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>Gateway Active</Text>
-            <Text strong style={{ fontSize: 13 }}>
+            <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>Gateway Active</Text>
+            <Text strong style={{ fontSize: 14 }}>
               {healthData.activeGateways} / {healthData.totalGateways} trạm
             </Text>
           </Col>
 
           <Col xs={12} sm={6} md={4}>
-            <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>Sensors Kết nối</Text>
-            <Text strong style={{ fontSize: 13 }}>
+            <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>Sensors Kết nối</Text>
+            <Text strong style={{ fontSize: 14 }}>
               {healthData.activeSensors?.toLocaleString()} nodes
             </Text>
           </Col>
@@ -462,7 +462,7 @@ export default function SystemDashboard() {
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-              <Text type="secondary" style={{ fontSize: 13, fontWeight: 500 }}>
+              <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>
                 Tải CPU Cluster
               </Text>
               <div
@@ -485,14 +485,14 @@ export default function SystemDashboard() {
               <div>
                 <span
                   style={{
-                    fontSize: 28,
+                    fontSize: 18,
                     fontWeight: 700,
                     color: healthData.isCpuOverloaded ? '#DC2626' : undefined,
                   }}
                 >
                   {healthData.cpu}%
                 </span>
-                <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>
+                <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>
                   Ngưỡng cảnh báo: &gt; 80%
                 </Text>
               </div>
@@ -528,7 +528,7 @@ export default function SystemDashboard() {
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-              <Text type="secondary" style={{ fontSize: 13, fontWeight: 500 }}>
+              <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>
                 Tải Bộ nhớ RAM
               </Text>
               <div
@@ -551,14 +551,14 @@ export default function SystemDashboard() {
               <div>
                 <span
                   style={{
-                    fontSize: 28,
+                    fontSize: 18,
                     fontWeight: 700,
                     color: healthData.isRamOverloaded ? '#DC2626' : undefined,
                   }}
                 >
                   {healthData.ram}%
                 </span>
-                <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>
+                <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>
                   Ngưỡng cảnh báo: &gt; 85%
                 </Text>
               </div>
@@ -581,7 +581,7 @@ export default function SystemDashboard() {
         <Col xs={24} sm={12} lg={6}>
           <Card bordered style={{ borderRadius: 12, boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-              <Text type="secondary" style={{ fontSize: 13, fontWeight: 500 }}>
+              <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>
                 Phiên WebSocket Kết nối
               </Text>
               <div
@@ -602,10 +602,10 @@ export default function SystemDashboard() {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', margin: '4px 0 10px 0' }}>
               <div>
-                <span style={{ fontSize: 28, fontWeight: 700 }}>
+                <span style={{ fontSize: 18, fontWeight: 700 }}>
                   {healthData.wsConnections.toLocaleString()}
                 </span>
-                <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>
+                <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>
                   Phiên trực tuyến theo thời gian thực
                 </Text>
               </div>
@@ -626,7 +626,7 @@ export default function SystemDashboard() {
         <Col xs={24} sm={12} lg={6}>
           <Card bordered style={{ borderRadius: 12, boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-              <Text type="secondary" style={{ fontSize: 13, fontWeight: 500 }}>
+              <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>
                 Lưu lượng Throughput
               </Text>
               <div
@@ -647,11 +647,11 @@ export default function SystemDashboard() {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', margin: '4px 0 10px 0' }}>
               <div>
-                <span style={{ fontSize: 28, fontWeight: 700 }}>
+                <span style={{ fontSize: 18, fontWeight: 700 }}>
                   {healthData.throughput.toLocaleString()}
                 </span>
                 <span style={{ fontSize: 14, color: '#64748B', marginLeft: 4 }}>msg/s</span>
-                <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>
+                <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>
                   Băng thông: {healthData.bandwidth}
                 </Text>
               </div>
@@ -683,7 +683,7 @@ export default function SystemDashboard() {
                       Biểu Đồ Sóng Tải Lưu Lượng & Tải Hạ Tầng Thời Gian Thực
                     </span>
                   </Space>
-                  <Text type="secondary" style={{ display: 'block', fontSize: 11, marginTop: 2 }}>
+                  <Text type="secondary" style={{ display: 'block', fontSize: 12, marginTop: 2 }}>
                     Dữ liệu thời gian thực tại {healthData.stationName}
                   </Text>
                 </div>
@@ -861,7 +861,7 @@ export default function SystemDashboard() {
                       <Text style={{ fontSize: 12, lineHeight: 1.4, display: 'block' }}>
                         {ev.text}
                       </Text>
-                      <Text type="secondary" style={{ fontSize: 10 }}>
+                      <Text type="secondary" style={{ fontSize: 12 }}>
                         {ev.time}
                       </Text>
                     </div>

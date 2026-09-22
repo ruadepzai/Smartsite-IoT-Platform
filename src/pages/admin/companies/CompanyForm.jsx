@@ -258,7 +258,7 @@ export default function CompanyForm() {
             </Text>
           </div>
         </Space>
-        <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+        <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
           {screenCode}
         </Tag>
       </div>

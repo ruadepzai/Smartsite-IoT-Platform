@@ -326,10 +326,10 @@ export default function TenantLayout() {
 
           {!collapsed && (
             <div style={{ overflow: 'hidden' }}>
-              <Text strong style={{ fontSize: 12.5, display: 'block', lineHeight: 1.2 }} ellipsis>
+              <Text strong style={{ fontSize: 14, display: 'block', lineHeight: 1.2 }} ellipsis>
                 {tenantProfile.shortName}
               </Text>
-              <Tag color="blue" style={{ fontSize: 9, padding: '0 3px', borderRadius: 3, marginTop: 2 }}>
+              <Tag color="blue" style={{ fontSize: 12, padding: '0 3px', borderRadius: 3, marginTop: 2 }}>
                 Tenant Portal
               </Tag>
             </div>
@@ -345,7 +345,7 @@ export default function TenantLayout() {
             borderRight: 0,
             background: 'transparent',
             padding: '6px 0 60px 0',
-            fontSize: 12.5,
+            fontSize: 14,
           }}
         />
       </Sider>
@@ -373,7 +373,7 @@ export default function TenantLayout() {
               type="text"
               icon={collapsed ? <PanelLeftOpen size={18} /> : <PanelLeftClose size={18} />}
               onClick={() => setCollapsed(!collapsed)}
-              style={{ fontSize: 16, width: 36, height: 36 }}
+              style={{ fontSize: 18, width: 36, height: 36 }}
             />
 
             {/* Switcher đổi ngữ cảnh Tenant để tiện test nhiều công ty */}
@@ -390,7 +390,7 @@ export default function TenantLayout() {
                   label: (
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <span style={{ fontWeight: 600 }}>{p.shortName}</span>
-                      <Tag color="cyan" style={{ fontSize: 10 }}>{p.plan}</Tag>
+                      <Tag color="cyan" style={{ fontSize: 12 }}>{p.plan}</Tag>
                     </div>
                   ),
                 }))}
@@ -403,12 +403,12 @@ export default function TenantLayout() {
             {/* Quota Chips (Hạn mức Gateway & Thiết bị) */}
             <div style={{ display: 'none' }} className="md:flex items-center gap-2">
               <Tooltip title="Hạn mức Gateway IoT của doanh nghiệp">
-                <Tag color="blue" style={{ borderRadius: 6, fontSize: 11.5, padding: '2px 8px', margin: 0 }}>
+                <Tag color="blue" style={{ borderRadius: 6, fontSize: 12, padding: '2px 8px', margin: 0 }}>
                   Gateway: <strong>{tenantProfile.usedGateways}/{tenantProfile.maxGateways}</strong>
                 </Tag>
               </Tooltip>
               <Tooltip title="Hạn mức Thiết bị cảm biến / Đo đếm">
-                <Tag color="green" style={{ borderRadius: 6, fontSize: 11.5, padding: '2px 8px', margin: 0 }}>
+                <Tag color="green" style={{ borderRadius: 6, fontSize: 12, padding: '2px 8px', margin: 0 }}>
                   Thiết bị: <strong>{tenantProfile.usedDevices}/{tenantProfile.maxDevices}</strong>
                 </Tag>
               </Tooltip>
@@ -477,10 +477,10 @@ export default function TenantLayout() {
                   NL
                 </Avatar>
                 <div style={{ display: 'none', lineHeight: 1.2, textAlign: 'left' }} className="lg:block">
-                  <Text strong style={{ fontSize: 12.5, display: 'block' }}>
+                  <Text strong style={{ fontSize: 14, display: 'block' }}>
                     Nguyễn Hoàng Long
                   </Text>
-                  <Text type="secondary" style={{ fontSize: 10.5 }}>
+                  <Text type="secondary" style={{ fontSize: 12 }}>
                     Tenant Admin (AT-03)
                   </Text>
                 </div>
@@ -497,7 +497,7 @@ export default function TenantLayout() {
             borderBottom: `1px solid ${isDark ? '#1F2937' : '#E5E7EB'}`,
           }}
         >
-          <Breadcrumb items={getBreadcrumbItems()} style={{ fontSize: 12.5 }} />
+          <Breadcrumb items={getBreadcrumbItems()} style={{ fontSize: 12 }} />
         </div>
 
         {/* Content Body */}

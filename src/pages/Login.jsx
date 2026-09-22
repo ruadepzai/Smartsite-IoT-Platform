@@ -198,7 +198,7 @@ export default function Login() {
           <Title level={3} style={{ margin: 0, color: '#FFFFFF', fontWeight: 700, letterSpacing: '-0.02em' }}>
             SmartSite IoT Platform
           </Title>
-          <Text style={{ color: '#94A3B8', fontSize: 13, display: 'block', marginTop: 4 }}>
+          <Text style={{ color: '#94A3B8', fontSize: 12, display: 'block', marginTop: 4 }}>
             {!isForgotPassword ? 'Nền tảng Giám sát & Quản trị IoT' : 'Khôi phục mật khẩu tài khoản'}
           </Text>
         </div>
@@ -261,7 +261,7 @@ export default function Login() {
               <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 20, marginTop: -4 }}>
                 <Button
                   type="link"
-                  style={{ padding: 0, color: '#4098FF', fontSize: 13 }}
+                  style={{ padding: 0, color: '#4098FF', fontSize: 14 }}
                   onClick={() => {
                     setIsForgotPassword(true);
                     setResetSuccess(false);
@@ -286,7 +286,7 @@ export default function Login() {
                   style={{
                     height: 44,
                     fontWeight: 600,
-                    fontSize: 15,
+                    fontSize: 14,
                     backgroundColor: isLoginButtonDisabled ? '#1E293B' : '#0B72E7',
                     color: isLoginButtonDisabled ? '#64748B' : '#FFFFFF',
                     borderColor: isLoginButtonDisabled ? '#334155' : '#0B72E7',
@@ -343,10 +343,10 @@ export default function Login() {
                         width: '100%',
                       }}
                     >
-                      <strong style={{ color: '#F1F5F9', fontSize: 13 }}>{acc.email}</strong>
+                      <strong style={{ color: '#F1F5F9', fontSize: 14 }}>{acc.email}</strong>
                       <Tag
                         color={acc.status === 'Đã khóa' ? 'error' : acc.id.includes('TNT') ? 'cyan' : 'blue'}
-                        style={{ margin: 0, fontSize: 11, lineHeight: '18px', padding: '0 6px', borderRadius: 4 }}
+                        style={{ margin: 0, fontSize: 12, lineHeight: '18px', padding: '0 6px', borderRadius: 4 }}
                       >
                         {acc.status === 'Đã khóa' ? 'Tài khoản khóa (MSG-02)' : acc.role}
                       </Tag>
@@ -357,12 +357,12 @@ export default function Login() {
                         alignItems: 'center',
                         justifyContent: 'space-between',
                         width: '100%',
-                        fontSize: 11,
+                        fontSize: 12,
                         color: '#64748B',
                       }}
                     >
                       <span>Mật khẩu: <code style={{ color: '#94A3B8', background: '#0D1117', padding: '1px 4px', borderRadius: 3 }}>{acc.password}</code></span>
-                      <span style={{ fontStyle: 'italic', color: '#64748B', fontSize: 10 }}>{acc.note}</span>
+                      <span style={{ fontStyle: 'italic', color: '#64748B', fontSize: 12 }}>{acc.note}</span>
                     </div>
                   </Button>
                 ))}
@@ -388,7 +388,7 @@ export default function Login() {
               <Title level={4} style={{ margin: '0 0 4px 0', color: '#FFFFFF' }}>
                 Quên mật khẩu
               </Title>
-              <Text style={{ color: '#94A3B8', fontSize: 13 }}>
+              <Text style={{ color: '#94A3B8', fontSize: 12 }}>
                 Bước 1: Nhập email tài khoản để nhận liên kết khôi phục mật khẩu.
               </Text>
             </div>
@@ -429,7 +429,7 @@ export default function Login() {
                   style={{
                     height: 44,
                     fontWeight: 600,
-                    fontSize: 15,
+                    fontSize: 14,
                     backgroundColor: countdown > 0 ? '#334155' : '#0B72E7',
                     color: countdown > 0 ? '#CBD5E1' : '#FFFFFF',
                     borderColor: countdown > 0 ? '#475569' : '#0B72E7',
@@ -452,7 +452,7 @@ export default function Login() {
                   showIcon
                   message={<span style={{ fontWeight: 600, color: '#3DD68C' }}>Bước 2: Kiểm tra email</span>}
                   description={
-                    <span style={{ color: '#E2E8F0', fontSize: 13, lineHeight: 1.5, display: 'block' }}>
+                    <span style={{ color: '#E2E8F0', fontSize: 14, lineHeight: 1.5, display: 'block' }}>
                       Liên kết đặt lại mật khẩu đã gửi tới email, hết hạn sau 5 phút. Bấm vào liên kết trong email để đặt mật khẩu mới — không dùng mã OTP.
                     </span>
                   }
@@ -485,7 +485,7 @@ export default function Login() {
                       style={{
                         color: '#4098FF',
                         padding: '4px 0',
-                        fontSize: 13,
+                        fontSize: 14,
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: 6,

@@ -166,13 +166,13 @@ export default function TenantDashboard() {
               Dashboard Giám Sát & Điều Hành Thời Gian Thực
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Giám sát telemetry 24h & tổng hợp 30 ngày, điều khiển RPC trực tiếp thiết bị theo phân quyền (MH-MT3-01)
           </Text>
         </div>
 
         <Space size={10}>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MT3-01
           </Tag>
           <Button
@@ -310,11 +310,11 @@ export default function TenantDashboard() {
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Text strong style={{ fontSize: 12 }}>{a.title}</Text>
-                    <Tag color={a.severity === 'CRITICAL' ? 'error' : 'warning'} style={{ fontSize: 10, margin: 0 }}>
+                    <Tag color={a.severity === 'CRITICAL' ? 'error' : 'warning'} style={{ fontSize: 12, margin: 0 }}>
                       {a.severity}
                     </Tag>
                   </div>
-                  <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 2 }}>
+                  <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
                     📍 {a.room} • {a.triggeredAt}
                   </Text>
                 </div>
@@ -361,14 +361,14 @@ export default function TenantDashboard() {
               render: (name, r) => (
                 <div>
                   <strong>{name}</strong>
-                  <Text type="secondary" style={{ display: 'block', fontSize: 11 }}><code>{r.code}</code> • {r.category}</Text>
+                  <Text type="secondary" style={{ display: 'block', fontSize: 12 }}><code>{r.code}</code> • {r.category}</Text>
                 </div>
               ),
             },
             {
               title: 'Vị trí',
               dataIndex: 'room',
-              render: (rm, r) => <div>{rm}<br /><Text type="secondary" style={{ fontSize: 11 }}>{r.building}</Text></div>,
+              render: (rm, r) => <div>{rm}<br /><Text type="secondary" style={{ fontSize: 12 }}>{r.building}</Text></div>,
             },
             {
               title: 'Telemetry Thời Gian Thực',

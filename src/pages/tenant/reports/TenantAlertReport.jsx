@@ -68,8 +68,8 @@ export default function TenantAlertReport() {
       key: 'handler',
       render: (h, r) => (
         <div>
-          <Text strong style={{ fontSize: 13 }}>{h}</Text>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11 }}>{r.role}</Text>
+          <Text strong style={{ fontSize: 14 }}>{h}</Text>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12 }}>{r.role}</Text>
         </div>
       ),
     },
@@ -110,7 +110,7 @@ export default function TenantAlertReport() {
           <Text type="secondary">Đo lường thời gian trung bình tiếp nhận và khắc phục sự cố theo từng nhân viên (MH-MT5-02/03)</Text>
         </div>
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>MH-MT5-02 / 03</Tag>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>MH-MT5-02 / 03</Tag>
           <Button type="primary" icon={<FileSpreadsheet size={16} />} onClick={handleExport} style={{ backgroundColor: '#16A34A', borderColor: '#16A34A', borderRadius: 8 }}>
             Xuất file Excel (.xlsx)
           </Button>

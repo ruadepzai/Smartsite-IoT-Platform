@@ -224,13 +224,13 @@ export default function TenantAlertSeverityReport() {
               Báo Cáo Thống Kê Cảnh Báo Theo Mức Độ
             </Title>
           </div>
-          <Text type="secondary" style={{ fontSize: 12.5, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Đánh giá phân bố mức độ nghiêm trọng (Critical/Warning/Info), tần suất kích hoạt escalation và tỷ lệ giải quyết sự cố (MH-MT5-02)
           </Text>
         </div>
 
         <Space align="center">
-          <Tag color="blue" style={{ fontSize: 12.5, padding: '3px 8px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '3px 8px', borderRadius: 6 }}>
             MH-MT5-02
           </Tag>
           <Button

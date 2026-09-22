@@ -152,7 +152,7 @@ export default function TenantRpcControl() {
       render: (id, r) => (
         <div>
           <Text code strong>{id}</Text>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11, marginTop: 2 }}>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12, marginTop: 2 }}>
             <Clock size={11} style={{ display: 'inline', marginRight: 4, verticalAlign: '-1px' }} />
             {r.sentAt}
           </Text>
@@ -167,9 +167,9 @@ export default function TenantRpcControl() {
         <div>
           <Space size={6}>
             <Cpu size={14} style={{ color: '#0B72E7' }} />
-            <Text strong style={{ fontSize: 13 }}>{name}</Text>
+            <Text strong style={{ fontSize: 14 }}>{name}</Text>
           </Space>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11, marginTop: 2 }}>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12, marginTop: 2 }}>
             Mã định danh: <code>{r.deviceId}</code>
           </Text>
         </div>
@@ -190,7 +190,7 @@ export default function TenantRpcControl() {
       dataIndex: 'params',
       key: 'params',
       render: (p) => (
-        <code style={{ fontSize: 11, background: isDark ? '#1F2937' : '#F3F4F6', padding: '2px 6px', borderRadius: 4 }}>
+        <code style={{ fontSize: 12, background: isDark ? '#1F2937' : '#F3F4F6', padding: '2px 6px', borderRadius: 4 }}>
           {p}
         </code>
       ),
@@ -245,13 +245,13 @@ export default function TenantRpcControl() {
               Điều Khiển Từ Xa & Lịch Sử Lệnh RPC
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Gửi lệnh RPC điều khiển thiết bị online và tra cứu lịch sử thực thi theo mô hình 4 trạng thái (MH-MT3-02)
           </Text>
         </div>
 
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MT3-02
           </Tag>
           <Button

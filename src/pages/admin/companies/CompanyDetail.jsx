@@ -100,7 +100,7 @@ export default function CompanyDetail() {
       dataIndex: 'actor',
       key: 'actor',
       width: 200,
-      render: (actor) => <Text strong style={{ fontSize: 13 }}>{actor}</Text>,
+      render: (actor) => <Text strong style={{ fontSize: 14 }}>{actor}</Text>,
     },
     {
       title: 'Hành động',
@@ -113,7 +113,7 @@ export default function CompanyDetail() {
       title: 'Chi tiết thay đổi',
       dataIndex: 'detail',
       key: 'detail',
-      render: (detail) => <Text type="secondary" style={{ fontSize: 13 }}>{detail}</Text>,
+      render: (detail) => <Text type="secondary" style={{ fontSize: 12 }}>{detail}</Text>,
     },
   ];
 
@@ -145,7 +145,7 @@ export default function CompanyDetail() {
                   <Tag color={devPct >= 80 ? 'warning' : 'blue'}>{devPct}% hạn mức</Tag>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 10 }}>
-                  <span style={{ fontSize: 28, fontWeight: 700 }}>{usedDev}</span>
+                  <span style={{ fontSize: 18, fontWeight: 700 }}>{usedDev}</span>
                   <Text type="secondary" style={{ fontSize: 14 }}>/ {maxDev} thiết bị</Text>
                 </div>
                 <Progress
@@ -172,7 +172,7 @@ export default function CompanyDetail() {
                   <Tag color={usrPct >= 80 ? 'warning' : 'green'}>{usrPct}% hạn mức</Tag>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 10 }}>
-                  <span style={{ fontSize: 28, fontWeight: 700 }}>{usedUsr}</span>
+                  <span style={{ fontSize: 18, fontWeight: 700 }}>{usedUsr}</span>
                   <Text type="secondary" style={{ fontSize: 14 }}>/ {maxUsr} tài khoản</Text>
                 </div>
                 <Progress
@@ -225,7 +225,7 @@ export default function CompanyDetail() {
               <Badge
                 status={badgeStatus}
                 text={
-                  <span style={{ color: statusColor, fontWeight: 600, fontSize: 13 }}>
+                  <span style={{ color: statusColor, fontWeight: 600, fontSize: 14 }}>
                     {tenant.status}
                   </span>
                 }
@@ -246,7 +246,7 @@ export default function CompanyDetail() {
       children: (
         <div style={{ paddingTop: 12 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-            <Text type="secondary" style={{ fontSize: 13 }}>
+            <Text type="secondary" style={{ fontSize: 12 }}>
               Chi tiết phân bổ hạn mức và đo lường sản lượng thực tế theo từng loại thiết bị
             </Text>
             {/* Toggle demo trạng thái rỗng AF-01 */}
@@ -375,7 +375,7 @@ export default function CompanyDetail() {
               <Badge
                 status={badgeStatus}
                 text={
-                  <span style={{ color: statusColor, fontSize: 13, fontWeight: 600 }}>
+                  <span style={{ color: statusColor, fontSize: 14, fontWeight: 600 }}>
                     {tenant.status}
                   </span>
                 }
@@ -388,7 +388,7 @@ export default function CompanyDetail() {
         </Space>
 
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MA2-03
           </Tag>
           <Button

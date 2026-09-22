@@ -197,9 +197,9 @@ export default function TenantDeviceReport() {
         <div>
           <Space size={6}>
             <Cpu size={14} style={{ color: '#0B72E7' }} />
-            <Text strong style={{ fontSize: 13 }}>{name}</Text>
+            <Text strong style={{ fontSize: 14 }}>{name}</Text>
           </Space>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11, marginTop: 2 }}>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12, marginTop: 2 }}>
             <code>{r.code}</code> • {r.category}
           </Text>
         </div>
@@ -212,7 +212,7 @@ export default function TenantDeviceReport() {
       render: (rm, r) => (
         <div>
           <Text style={{ fontSize: 12 }}>{rm}</Text>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11 }}>{r.building}</Text>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12 }}>{r.building}</Text>
         </div>
       ),
     },
@@ -228,7 +228,7 @@ export default function TenantDeviceReport() {
 
         return (
           <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 2 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 2 }}>
               <span style={{ fontWeight: 700, color: strokeColor }}>{pct}% Uptime</span>
               <Text type="secondary">Mục tiêu: 99.5%</Text>
             </div>
@@ -299,13 +299,13 @@ export default function TenantDeviceReport() {
               Báo Cáo Vận Hành Thiết Bị & Uptime
             </Title>
           </div>
-          <Text type="secondary" style={{ fontSize: 12.5, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Tổng hợp tỷ lệ khả dụng Uptime/Downtime, số lần và thời lượng mất kết nối theo chu kỳ 30 ngày (MH-MT5-01)
           </Text>
         </div>
 
         <Space align="center">
-          <Tag color="blue" style={{ fontSize: 12.5, padding: '3px 8px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '3px 8px', borderRadius: 6 }}>
             MH-MT5-01
           </Tag>
           <Button

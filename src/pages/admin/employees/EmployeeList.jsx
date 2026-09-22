@@ -137,7 +137,7 @@ export default function EmployeeList() {
           <Text strong style={{ color: record.status === 'Đã khóa' ? '#94A3B8' : undefined }}>
             {name}
           </Text>
-          <div style={{ fontSize: 11, color: '#64748B' }}>Mã: {record.id}</div>
+          <div style={{ fontSize: 12, color: '#64748B' }}>Mã: {record.id}</div>
         </div>
       ),
     },
@@ -236,7 +236,7 @@ export default function EmployeeList() {
           </Text>
         </div>
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MA1-03
           </Tag>
           <Button
@@ -340,7 +340,7 @@ export default function EmployeeList() {
             total: filteredEmployees.length,
             onChange: (page) => setCurrentPage(page),
             showTotal: (total, range) => (
-              <span style={{ color: '#94A3B8', fontSize: 13 }}>
+              <span style={{ color: '#94A3B8', fontSize: 12 }}>
                 Trang {currentPage}/{Math.ceil(total / pageSize) || 1} · {total} tài khoản · 10 dòng/trang
               </span>
             ),

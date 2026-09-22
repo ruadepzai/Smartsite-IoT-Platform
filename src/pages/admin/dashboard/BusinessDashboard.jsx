@@ -75,8 +75,8 @@ export default function BusinessDashboard() {
       key: 'company',
       render: (company, r) => (
         <div>
-          <Text strong style={{ fontSize: 13 }}>{company}</Text>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11 }}>
+          <Text strong style={{ fontSize: 14 }}>{company}</Text>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12 }}>
             Mã HĐ: {r.contractCode}
           </Text>
         </div>
@@ -100,7 +100,7 @@ export default function BusinessDashboard() {
       dataIndex: 'value',
       key: 'value',
       width: 160,
-      render: (val) => <Text strong style={{ color: '#0B72E7', fontSize: 13 }}>{val}</Text>,
+      render: (val) => <Text strong style={{ color: '#0B72E7', fontSize: 14 }}>{val}</Text>,
     },
     {
       title: 'Công nợ (Chỉ đọc)',
@@ -114,7 +114,7 @@ export default function BusinessDashboard() {
             strong
             style={{
               color: isDebt ? '#DC2626' : '#16A34A',
-              fontSize: 13,
+              fontSize: 14,
             }}
           >
             {debt}
@@ -145,7 +145,7 @@ export default function BusinessDashboard() {
         </div>
 
         <Space size={10} wrap>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MA4-01
           </Tag>
 
@@ -192,7 +192,7 @@ export default function BusinessDashboard() {
         <Col xs={24} sm={12} lg={6}>
           <Card bordered style={{ borderRadius: 12, boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-              <Text type="secondary" style={{ fontSize: 13, fontWeight: 500 }}>
+              <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>
                 Doanh thu định kỳ (MRR)
               </Text>
               <div
@@ -213,10 +213,10 @@ export default function BusinessDashboard() {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', margin: '4px 0 10px 0' }}>
               <div>
-                <span style={{ fontSize: 24, fontWeight: 700, color: '#0B72E7' }}>
+                <span style={{ fontSize: 18, fontWeight: 700, color: '#0B72E7' }}>
                   {(metrics.mrr / 1000000).toFixed(0)} triệu
                 </span>
-                <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>
+                <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>
                   {metrics.mrr.toLocaleString('vi-VN')} ₫/tháng
                 </Text>
               </div>
@@ -237,7 +237,7 @@ export default function BusinessDashboard() {
         <Col xs={24} sm={12} lg={6}>
           <Card bordered style={{ borderRadius: 12, boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-              <Text type="secondary" style={{ fontSize: 13, fontWeight: 500 }}>
+              <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>
                 Quy đổi hàng năm (ARR)
               </Text>
               <div
@@ -258,10 +258,10 @@ export default function BusinessDashboard() {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', margin: '4px 0 10px 0' }}>
               <div>
-                <span style={{ fontSize: 24, fontWeight: 700, color: '#8B5CF6' }}>
+                <span style={{ fontSize: 18, fontWeight: 700, color: '#8B5CF6' }}>
                   {(metrics.arr / 1000000000).toFixed(2)} tỷ
                 </span>
-                <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>
+                <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>
                   {metrics.arr.toLocaleString('vi-VN')} ₫/năm
                 </Text>
               </div>
@@ -282,7 +282,7 @@ export default function BusinessDashboard() {
         <Col xs={24} sm={12} lg={6}>
           <Card bordered style={{ borderRadius: 12, boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-              <Text type="secondary" style={{ fontSize: 13, fontWeight: 500 }}>
+              <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>
                 Tốc độ tăng trưởng MoM
               </Text>
               <div
@@ -305,14 +305,14 @@ export default function BusinessDashboard() {
               <div>
                 <span
                   style={{
-                    fontSize: 24,
+                    fontSize: 18,
                     fontWeight: 700,
                     color: metrics.momGrowth >= 0 ? '#16A34A' : '#DC2626',
                   }}
                 >
                   {metrics.momGrowth >= 0 ? `+${metrics.momGrowth}%` : `${metrics.momGrowth}%`}
                 </span>
-                <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>
+                <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>
                   Tăng trưởng tháng liên tiếp
                 </Text>
               </div>
@@ -332,7 +332,7 @@ export default function BusinessDashboard() {
         <Col xs={24} sm={12} lg={6}>
           <Card bordered style={{ borderRadius: 12, boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-              <Text type="secondary" style={{ fontSize: 13, fontWeight: 500 }}>
+              <Text type="secondary" style={{ fontSize: 12, fontWeight: 500 }}>
                 Doanh nghiệp đang hoạt động
               </Text>
               <div
@@ -353,11 +353,11 @@ export default function BusinessDashboard() {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', margin: '4px 0 10px 0' }}>
               <div>
-                <span style={{ fontSize: 24, fontWeight: 700 }}>
+                <span style={{ fontSize: 18, fontWeight: 700 }}>
                   {metrics.activeTenants}
                 </span>
                 <span style={{ fontSize: 14, color: '#64748B', marginLeft: 4 }}>/ {metrics.totalTenants} DN</span>
-                <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>
+                <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>
                   Tenant Active Status
                 </Text>
               </div>

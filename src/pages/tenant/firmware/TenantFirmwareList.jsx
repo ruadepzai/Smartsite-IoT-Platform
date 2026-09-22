@@ -205,7 +205,7 @@ export default function TenantFirmwareList() {
         <div>
           <Space size={6}>
             <HardDriveDownload size={16} style={{ color: '#0B72E7' }} />
-            <Text strong style={{ fontSize: 13 }}>{fn}</Text>
+            <Text strong style={{ fontSize: 14 }}>{fn}</Text>
           </Space>
           <div style={{ marginTop: 4 }}>
             <Tag color="blue" style={{ fontWeight: 600 }}>{r.version}</Tag>
@@ -278,13 +278,13 @@ export default function TenantFirmwareList() {
               Quản Lý Gói Firmware & Cập Nhật OTA
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Danh sách firmware khả dụng (Admin cấp / Tự tải lên) và thực thi cập nhật từ xa cho thiết bị (MH-MT2-05 & MH-MT2-06)
           </Text>
         </div>
 
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MT2-05 / 06
           </Tag>
           <Button
@@ -331,7 +331,7 @@ export default function TenantFirmwareList() {
             label={
               <Space>
                 <span style={{ fontWeight: 600 }}>Tệp tin Firmware (.bin, .hex)</span>
-                <Tag color="blue" style={{ fontSize: 11 }}>
+                <Tag color="blue" style={{ fontSize: 12 }}>
                   Tối đa 50MB
                 </Tag>
               </Space>

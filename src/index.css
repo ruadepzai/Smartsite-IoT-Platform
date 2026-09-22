@@ -1,3 +1,16 @@
+/* ==========================================================================
+   HỆ THỐNG TYPOGRAPHY 3 CỠ CHỮ THỐNG NHẤT TOÀN BỘ WEBSITE:
+   1. Nhỏ (Small):   12px — Phụ đề, ghi chú, metadata, tag/badge, breadcrumb, footnote
+   2. Vừa (Medium):  14px — Mặc định body, bảng dữ liệu, form controls, nút bấm, menu
+   3. To (Large):    18px — Tiêu đề trang, tiêu đề card/section, chỉ số KPI/thống kê
+   ========================================================================== */
+
+:root {
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 18px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,11 +22,35 @@ body,
 #root {
   height: 100%;
   width: 100%;
-  font-size: 13px;
+  font-size: 14px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.45;
+  line-height: 1.5;
+}
+
+/* Quy định kích thước chuẩn cho Ant Design Typography */
+.ant-typography h1,
+.ant-typography h2,
+.ant-typography h3,
+.ant-typography h4,
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography,
+h4.ant-typography {
+  font-size: 18px !important;
+}
+
+.ant-typography h5,
+h5.ant-typography {
+  font-size: 14px !important;
+}
+
+/* Kích thước phụ trợ: Nhỏ (12px) */
+.ant-typography-secondary,
+.ant-breadcrumb,
+.ant-tag {
+  font-size: 12px;
 }
 
 /* Custom scrollbars */

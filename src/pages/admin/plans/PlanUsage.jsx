@@ -106,12 +106,12 @@ export default function PlanUsage() {
         <div>
           <Link
             to={`/admin/companies/${record.id}`}
-            style={{ fontWeight: 600, fontSize: 13, color: '#0B72E7', display: 'inline-flex', alignItems: 'center', gap: 4 }}
+            style={{ fontWeight: 600, fontSize: 14, color: '#0B72E7', display: 'inline-flex', alignItems: 'center', gap: 4 }}
           >
             <span>{name}</span>
             <ExternalLink size={12} />
           </Link>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11 }}>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12 }}>
             Mã: {record.id}
           </Text>
         </div>
@@ -216,7 +216,7 @@ export default function PlanUsage() {
             Giám sát tỷ lệ tiêu thụ tài nguyên theo thời gian thực và cảnh báo các doanh nghiệp sắp chạm ngưỡng
           </Text>
         </div>
-        <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+        <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
           MH-MA3-02
         </Tag>
       </div>
@@ -292,7 +292,7 @@ export default function PlanUsage() {
           pagination={{
             pageSize: 10,
             showTotal: (total) => (
-              <span style={{ fontSize: 13 }}>
+              <span style={{ fontSize: 14 }}>
                 Tổng cộng {total} Doanh nghiệp
               </span>
             ),

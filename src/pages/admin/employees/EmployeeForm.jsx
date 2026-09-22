@@ -198,7 +198,7 @@ export default function EmployeeForm({ employee, onSuccess, onCancel }) {
             }}
           >
             <div>
-              <div style={{ fontWeight: 600, fontSize: 13, color: isLocked ? '#F04438' : undefined }}>
+              <div style={{ fontWeight: 600, fontSize: 14, color: isLocked ? '#F04438' : undefined }}>
                 {isLocked ? 'Trạng thái: Đã khóa tài khoản' : 'Khóa tài khoản'}
               </div>
               <Text type="secondary" style={{ fontSize: 12 }}>
@@ -225,7 +225,7 @@ export default function EmployeeForm({ employee, onSuccess, onCancel }) {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
               <span style={{ fontWeight: 500 }}>Phạm vi quyền theo module (chọn tối thiểu 1)</span>
               {selectedRole && (
-                <Text type="secondary" style={{ fontSize: 11, fontStyle: 'italic' }}>
+                <Text type="secondary" style={{ fontSize: 12, fontStyle: 'italic' }}>
                   (Tự động tick theo Role {selectedRole})
                 </Text>
               )}
@@ -252,7 +252,7 @@ export default function EmployeeForm({ employee, onSuccess, onCancel }) {
             <Row gutter={[16, 12]}>
               {MODULE_OPTIONS.map((mod) => (
                 <Col span={12} key={mod.value}>
-                  <Checkbox value={mod.value} style={{ fontSize: 13 }}>
+                  <Checkbox value={mod.value} style={{ fontSize: 14 }}>
                     {mod.label}
                   </Checkbox>
                 </Col>

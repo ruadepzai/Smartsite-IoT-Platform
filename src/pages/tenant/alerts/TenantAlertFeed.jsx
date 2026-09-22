@@ -168,13 +168,13 @@ export default function TenantAlertFeed() {
               Feed Nhật Ký Xử Lý Cảnh Báo (Audit Trail)
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Tra cứu ai đã xử lý cảnh báo nào, thời điểm và nội dung khắc phục cùng các sự kiện tự động escalation (MH-MT3-06)
           </Text>
         </div>
 
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MT3-06
           </Tag>
         </Space>
@@ -260,14 +260,14 @@ export default function TenantAlertFeed() {
                         ) : (
                           <Avatar size="small" icon={<User size={14} />} style={{ backgroundColor: '#0B72E7' }} />
                         )}
-                        <Text strong style={{ fontSize: 13 }}>{item.actor}</Text>
-                        <Tag color={item.isSystem ? 'purple' : 'blue'} style={{ fontSize: 11 }}>
+                        <Text strong style={{ fontSize: 14 }}>{item.actor}</Text>
+                        <Tag color={item.isSystem ? 'purple' : 'blue'} style={{ fontSize: 12 }}>
                           {item.action}
                         </Tag>
                       </Space>
 
                       <Space size={8}>
-                        <Tag color={badgeColor} style={{ fontSize: 11 }}>{item.severity}</Tag>
+                        <Tag color={badgeColor} style={{ fontSize: 12 }}>{item.severity}</Tag>
                         <Text type="secondary" style={{ fontSize: 12 }}>
                           <Clock size={11} style={{ display: 'inline', marginRight: 4, verticalAlign: '-1px' }} />
                           {item.timestamp}
@@ -278,7 +278,7 @@ export default function TenantAlertFeed() {
                     <Divider style={{ margin: '10px 0' }} />
 
                     <div>
-                      <Text strong style={{ fontSize: 13, color: item.severity === 'CRITICAL' ? '#DC2626' : undefined }}>
+                      <Text strong style={{ fontSize: 14, color: item.severity === 'CRITICAL' ? '#DC2626' : undefined }}>
                         [{item.alertId}] {item.alertTitle}
                       </Text>
 

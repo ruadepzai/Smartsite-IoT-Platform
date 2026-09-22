@@ -133,23 +133,23 @@ export default function FirmwareList() {
         <div>
           <Space size={8} align="center" style={{ marginBottom: 2 }}>
             <FileCode size={16} style={{ color: '#0B72E7', flexShrink: 0 }} />
-            <Text strong style={{ fontSize: 13 }}>
+            <Text strong style={{ fontSize: 14 }}>
               {fileName}
             </Text>
           </Space>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 2 }}>
-            <Tag color="blue" style={{ fontWeight: 600, fontSize: 11 }}>
+            <Tag color="blue" style={{ fontWeight: 600, fontSize: 12 }}>
               {record.version}
             </Tag>
-            <Text type="secondary" style={{ fontSize: 11 }}>
+            <Text type="secondary" style={{ fontSize: 12 }}>
               {record.size}
             </Text>
             {record.status === 'Ổn định' ? (
-              <Tag color="success" style={{ fontSize: 11 }}>Ổn định</Tag>
+              <Tag color="success" style={{ fontSize: 12 }}>Ổn định</Tag>
             ) : record.status === 'Lưu trữ' ? (
-              <Tag color="default" style={{ fontSize: 11 }}>Lưu trữ</Tag>
+              <Tag color="default" style={{ fontSize: 12 }}>Lưu trữ</Tag>
             ) : (
-              <Tag color="processing" style={{ fontSize: 11 }}>Phát hành</Tag>
+              <Tag color="processing" style={{ fontSize: 12 }}>Phát hành</Tag>
             )}
           </div>
         </div>
@@ -230,7 +230,7 @@ export default function FirmwareList() {
 
         return (
           <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 2 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 2 }}>
               <span>
                 <strong>{r.updatedDevices}</strong> / {r.totalCompatibleDevices} thiết bị
               </span>
@@ -298,7 +298,7 @@ export default function FirmwareList() {
           </Text>
         </div>
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MA5-01
           </Tag>
           <Button
@@ -382,7 +382,7 @@ export default function FirmwareList() {
           pagination={{
             pageSize: 20,
             showTotal: (total) => (
-              <span style={{ fontSize: 13 }}>
+              <span style={{ fontSize: 14 }}>
                 Tổng cộng {total} gói Firmware
               </span>
             ),

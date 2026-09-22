@@ -148,7 +148,7 @@ export default function AuditLogList() {
       render: (ts) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
           <Clock size={14} style={{ color: '#94A3B8', flexShrink: 0 }} />
-          <Text strong style={{ fontSize: 13, fontFamily: 'monospace' }}>
+          <Text strong style={{ fontSize: 14, fontFamily: 'monospace' }}>
             {ts}
           </Text>
         </div>
@@ -173,18 +173,18 @@ export default function AuditLogList() {
               ) : (
                 <User size={15} style={{ color: '#10B981' }} />
               )}
-              <Text strong style={{ fontSize: 13 }}>
+              <Text strong style={{ fontSize: 14 }}>
                 {actor}
               </Text>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 3 }}>
               <Tag
                 color={isSuperAdmin ? 'blue' : isSystem ? 'purple' : 'green'}
-                style={{ fontSize: 10, padding: '0 6px', borderRadius: 4 }}
+                style={{ fontSize: 12, padding: '0 6px', borderRadius: 4 }}
               >
                 {record.actorRole === 'AT-01' ? 'AT-01 Super Admin' : record.actorRole === 'AT-02' ? 'AT-02 Operations' : 'Hệ thống'}
               </Tag>
-              <Text type="secondary" style={{ fontSize: 11 }}>
+              <Text type="secondary" style={{ fontSize: 12 }}>
                 {record.actorEmail}
               </Text>
             </div>
@@ -205,10 +205,10 @@ export default function AuditLogList() {
       key: 'details',
       render: (details, record) => (
         <div>
-          <Text style={{ fontSize: 13, lineHeight: 1.5, display: 'block' }}>
+          <Text style={{ fontSize: 14, lineHeight: 1.5, display: 'block' }}>
             {details}
           </Text>
-          <Text type="secondary" style={{ fontSize: 11, marginTop: 2, display: 'block' }}>
+          <Text type="secondary" style={{ fontSize: 12, marginTop: 2, display: 'block' }}>
             Địa chỉ IP: <code>{record.ip}</code>
           </Text>
         </div>
@@ -227,13 +227,13 @@ export default function AuditLogList() {
               Nhật Ký Audit Hệ Thống
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Truy vết toàn bộ hoạt động quản trị, thay đổi cấu hình hạ tầng và sự kiện bảo mật theo thời gian thực (BR-A25)
           </Text>
         </div>
 
         <Space size={10} wrap>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MA6-01
           </Tag>
 
@@ -261,7 +261,7 @@ export default function AuditLogList() {
           <Row gutter={[12, 12]} align="middle">
             {/* Bộ lọc 1: Khoảng thời gian */}
             <Col xs={24} sm={12} md={4}>
-              <Text type="secondary" style={{ fontSize: 11, display: 'block', marginBottom: 4 }}>
+              <Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>
                 Khoảng thời gian:
               </Text>
               <Select
@@ -274,7 +274,7 @@ export default function AuditLogList() {
 
             {/* Bộ lọc 2: Vai trò (Role) */}
             <Col xs={24} sm={12} md={5}>
-              <Text type="secondary" style={{ fontSize: 11, display: 'block', marginBottom: 4 }}>
+              <Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>
                 Vai trò (Role):
               </Text>
               <Select
@@ -287,7 +287,7 @@ export default function AuditLogList() {
 
             {/* Bộ lọc 3: Người thực hiện (Actor) */}
             <Col xs={24} sm={12} md={5}>
-              <Text type="secondary" style={{ fontSize: 11, display: 'block', marginBottom: 4 }}>
+              <Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>
                 Người thực hiện:
               </Text>
               <Select
@@ -300,7 +300,7 @@ export default function AuditLogList() {
 
             {/* Bộ lọc 4: Ô tìm kiếm từ khóa Hành động & Chi tiết */}
             <Col xs={24} sm={12} md={7}>
-              <Text type="secondary" style={{ fontSize: 11, display: 'block', marginBottom: 4 }}>
+              <Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>
                 Tìm kiếm theo từ khóa:
               </Text>
               <Input
@@ -335,7 +335,7 @@ export default function AuditLogList() {
           pagination={{
             pageSize: 10,
             showTotal: (total) => (
-              <span style={{ fontSize: 13 }}>
+              <span style={{ fontSize: 14 }}>
                 Tổng cộng <strong>{total}</strong> sự kiện Audit Log
               </span>
             ),

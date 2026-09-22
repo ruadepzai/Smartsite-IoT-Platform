@@ -99,7 +99,7 @@ export default function CompanyList() {
       width: 250,
       render: (name, record) => (
         <div>
-          <Text strong style={{ display: 'block', fontSize: 13 }}>
+          <Text strong style={{ display: 'block', fontSize: 14 }}>
             {name}
           </Text>
           <Text type="secondary" style={{ fontSize: 12 }}>
@@ -114,7 +114,7 @@ export default function CompanyList() {
       key: 'taxCode',
       width: 130,
       render: (taxCode) => (
-        <Text style={{ fontFamily: 'monospace', fontSize: 13 }}>
+        <Text style={{ fontFamily: 'monospace', fontSize: 14 }}>
           {taxCode || '—'}
         </Text>
       ),
@@ -125,7 +125,7 @@ export default function CompanyList() {
       key: 'industry',
       width: 120,
       render: (industry) => (
-        <Text style={{ fontSize: 13 }}>
+        <Text style={{ fontSize: 14 }}>
           {industry || '—'}
         </Text>
       ),
@@ -154,7 +154,7 @@ export default function CompanyList() {
         const isNearLimit = pct >= 80;
         return (
           <div>
-            <Text strong style={{ fontSize: 13 }}>
+            <Text strong style={{ fontSize: 14 }}>
               {used} / {max}
             </Text>
             <span
@@ -177,7 +177,7 @@ export default function CompanyList() {
       key: 'createdAt',
       width: 110,
       render: (createdAt) => (
-        <Text type="secondary" style={{ fontSize: 13 }}>
+        <Text type="secondary" style={{ fontSize: 12 }}>
           {createdAt}
         </Text>
       ),
@@ -202,7 +202,7 @@ export default function CompanyList() {
           <Badge
             status={badgeStatus}
             text={
-              <span style={{ color, fontWeight: 600, fontSize: 13 }}>
+              <span style={{ color, fontWeight: 600, fontSize: 14 }}>
                 {status}
               </span>
             }
@@ -253,7 +253,7 @@ export default function CompanyList() {
           </Text>
         </div>
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MA2-01
           </Tag>
           <Button
@@ -356,7 +356,7 @@ export default function CompanyList() {
             total: filteredTenants.length,
             onChange: (page) => setCurrentPage(page),
             showTotal: (total, range) => (
-              <span style={{ fontSize: 13 }}>
+              <span style={{ fontSize: 14 }}>
                 Trang {currentPage}/{Math.ceil(total / pageSize) || 1} · {total} Doanh nghiệp · 10 bản ghi/trang (BR-A21)
               </span>
             ),

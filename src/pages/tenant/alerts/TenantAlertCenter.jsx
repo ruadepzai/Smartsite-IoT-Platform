@@ -147,10 +147,10 @@ export default function TenantAlertCenter() {
       key: 'title',
       render: (title, r) => (
         <div>
-          <Text strong style={{ fontSize: 13, color: r.severity === 'CRITICAL' ? '#DC2626' : undefined }}>
+          <Text strong style={{ fontSize: 14, color: r.severity === 'CRITICAL' ? '#DC2626' : undefined }}>
             {title}
           </Text>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11, marginTop: 2 }}>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12, marginTop: 2 }}>
             Thiết bị: <strong>{r.device}</strong> • Vị trí: {r.room} ({r.building})
           </Text>
         </div>
@@ -208,13 +208,13 @@ export default function TenantAlertCenter() {
               Trung Tâm Cảnh Báo & Xử Lý Sự Cố
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Theo dõi, phân cấp mức độ và cập nhật tiến trình xử lý sự cố cảnh báo toàn hệ thống (MH-MT3-03 & MH-MT3-04)
           </Text>
         </div>
 
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MT3-03 / 04
           </Tag>
           <Button
@@ -404,8 +404,8 @@ export default function TenantAlertCenter() {
                       children: (
                         <div>
                           <Text strong style={{ fontSize: 12 }}>Cảnh báo phát sinh tại thiết bị</Text>
-                          <Text type="secondary" style={{ display: 'block', fontSize: 11 }}>{selectedAlert.triggeredAt}</Text>
-                          <Text style={{ fontSize: 11 }}>Gửi thông báo ban đầu qua SMS + Email tới người phụ trách chính.</Text>
+                          <Text type="secondary" style={{ display: 'block', fontSize: 12 }}>{selectedAlert.triggeredAt}</Text>
+                          <Text style={{ fontSize: 12 }}>Gửi thông báo ban đầu qua SMS + Email tới người phụ trách chính.</Text>
                         </div>
                       ),
                     },
@@ -413,8 +413,8 @@ export default function TenantAlertCenter() {
                       color: 'orange',
                       children: (
                         <div>
-                          <Tag color="orange" style={{ fontSize: 10 }}>Hệ thống tự động Escalation Bước 1 (BR-T36)</Tag>
-                          <Text style={{ display: 'block', fontSize: 11, marginTop: 2 }}>
+                          <Tag color="orange" style={{ fontSize: 12 }}>Hệ thống tự động Escalation Bước 1 (BR-T36)</Tag>
+                          <Text style={{ display: 'block', fontSize: 12, marginTop: 2 }}>
                             Tại phút thứ 5 (BR-T28): Chưa được Acknowledge ➔ Gửi lại SMS nhắc nhở cho người được gán ban đầu.
                           </Text>
                         </div>
@@ -424,8 +424,8 @@ export default function TenantAlertCenter() {
                       color: 'red',
                       children: (
                         <div>
-                          <Tag color="error" style={{ fontSize: 10 }}>Hệ thống tự động Escalation Bước 2 (BR-T36)</Tag>
-                          <Text style={{ display: 'block', fontSize: 11, marginTop: 2 }}>
+                          <Tag color="error" style={{ fontSize: 12 }}>Hệ thống tự động Escalation Bước 2 (BR-T36)</Tag>
+                          <Text style={{ display: 'block', fontSize: 12, marginTop: 2 }}>
                             Tại phút thứ 7 (+2 phút): Vẫn chưa Acknowledge ➔ Gửi cảnh báo khẩn cấp tới TOÀN BỘ Tenant Admin của Tenant.
                           </Text>
                         </div>
@@ -436,7 +436,7 @@ export default function TenantAlertCenter() {
                       children: (
                         <div>
                           <Text strong style={{ fontSize: 12 }}>Trạng thái hiện tại: {selectedAlert.status}</Text>
-                          <Text type="secondary" style={{ display: 'block', fontSize: 11 }}>
+                          <Text type="secondary" style={{ display: 'block', fontSize: 12 }}>
                             Ghi chú: {selectedAlert.note || 'Đang theo dõi xử lý...'}
                           </Text>
                         </div>

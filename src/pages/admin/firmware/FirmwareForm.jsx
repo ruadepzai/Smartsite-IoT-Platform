@@ -187,7 +187,7 @@ export default function FirmwareForm() {
             <Title level={4} style={{ margin: 0 }}>
               {pageTitle}
             </Title>
-            <Text type="secondary" style={{ fontSize: 13 }}>
+            <Text type="secondary" style={{ fontSize: 12 }}>
               {isEdit
                 ? 'Điều chỉnh model tương thích và phân phối phạm vi áp dụng cho doanh nghiệp'
                 : 'Đăng tải bản build binary OTA mới và cấu hình phân phối thiết bị'}
@@ -195,7 +195,7 @@ export default function FirmwareForm() {
           </div>
         </Space>
 
-        <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+        <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
           MH-MA5-02
         </Tag>
       </div>

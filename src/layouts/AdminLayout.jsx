@@ -338,7 +338,7 @@ export default function AdminLayout() {
               <Text style={{ color: '#FFFFFF', fontWeight: 700, fontSize: 14, display: 'block', lineHeight: 1.2 }}>
                 SmartSite
               </Text>
-              <Text style={{ color: '#64748B', fontSize: 10, fontWeight: 500 }}>
+              <Text style={{ color: '#64748B', fontSize: 12, fontWeight: 500 }}>
                 Admin Console
               </Text>
             </div>
@@ -356,7 +356,7 @@ export default function AdminLayout() {
             style={{
               background: 'transparent',
               borderRight: 'none',
-              fontSize: 12.5,
+              fontSize: 14,
             }}
           />
         </div>
@@ -436,7 +436,7 @@ export default function AdminLayout() {
             />
             <Breadcrumb
               items={breadcrumbItems}
-              style={{ fontSize: 13 }}
+              style={{ fontSize: 14 }}
             />
           </Space>
 
@@ -488,7 +488,7 @@ export default function AdminLayout() {
                       style={{
                         backgroundColor: '#0B72E7',
                         fontWeight: 600,
-                        fontSize: 12.5,
+                        fontSize: 14,
                         flexShrink: 0,
                       }}
                       size={28}
@@ -496,10 +496,10 @@ export default function AdminLayout() {
                       {initial}
                     </Avatar>
                     <div style={{ lineHeight: 1.2, textAlign: 'left' }}>
-                      <Text strong style={{ fontSize: 12.5, display: 'block' }}>
+                      <Text strong style={{ fontSize: 14, display: 'block' }}>
                         {user?.name || 'Nguyễn Văn An'}
                       </Text>
-                      <Text type="secondary" style={{ fontSize: 10.5 }}>
+                      <Text type="secondary" style={{ fontSize: 12 }}>
                         {user?.role || 'Quản trị hệ thống'}
                       </Text>
                     </div>

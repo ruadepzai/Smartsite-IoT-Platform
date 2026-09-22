@@ -290,9 +290,9 @@ export default function TenantAssetList() {
           <Space size={8}>
             {icon}
             <div>
-              <Text strong style={{ fontSize: 13 }}>{name}</Text>
+              <Text strong style={{ fontSize: 14 }}>{name}</Text>
               {record.address && (
-                <Text type="secondary" style={{ fontSize: 11, display: 'block' }}>
+                <Text type="secondary" style={{ fontSize: 12, display: 'block' }}>
                   📍 {record.address} {record.coordinates ? `(${record.coordinates})` : ''}
                 </Text>
               )}
@@ -372,13 +372,13 @@ export default function TenantAssetList() {
               Cấu Trúc Không Gian & Tài Sản (Asset Hierarchy)
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Quản lý phân cấp Khu vực → Tòa nhà → Tầng → Phòng làm nền tảng gán thiết bị và phân quyền nhân viên (MH-MT2-01)
           </Text>
         </div>
 
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MT2-01
           </Tag>
           <Button

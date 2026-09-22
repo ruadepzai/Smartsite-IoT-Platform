@@ -51,7 +51,7 @@ export default function ComingSoon() {
         <Title level={3} style={{ color: '#FFFFFF', margin: '0 0 8px 0' }}>
           Tenant Portal
         </Title>
-        <Paragraph style={{ color: '#94A3B8', fontSize: 15, marginBottom: 24 }}>
+        <Paragraph style={{ color: '#94A3B8', fontSize: 14, marginBottom: 24 }}>
           Khu vực Tenant Portal đang được phát triển (Giai đoạn 2).
           <br />
           Hiện tại vui lòng đăng nhập vào <strong>Admin Console</strong> để trải nghiệm các tính năng quản trị.

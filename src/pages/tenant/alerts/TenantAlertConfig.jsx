@@ -210,8 +210,8 @@ export default function TenantAlertConfig() {
       key: 'metric',
       render: (m, r) => (
         <div>
-          <Text strong style={{ fontSize: 13 }}>{m}</Text>
-          <Text type="secondary" style={{ display: 'block', fontSize: 11, marginTop: 2 }}>
+          <Text strong style={{ fontSize: 14 }}>{m}</Text>
+          <Text type="secondary" style={{ display: 'block', fontSize: 12, marginTop: 2 }}>
             Device Profile: <code>{r.profile}</code>
           </Text>
         </div>
@@ -323,13 +323,13 @@ export default function TenantAlertConfig() {
               Cấu Hình Ngưỡng Cảnh Báo & Escalation
             </Title>
           </Space>
-          <Text type="secondary" style={{ fontSize: 13, display: 'block', marginTop: 2 }}>
+          <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
             Thiết lập ngưỡng kích hoạt cảnh báo, kênh gửi thông báo và thời gian escalation tự động theo Device Profile (MH-MT3-05)
           </Text>
         </div>
 
         <Space>
-          <Tag color="blue" style={{ fontSize: 13, padding: '4px 10px', borderRadius: 6 }}>
+          <Tag color="blue" style={{ fontSize: 12, padding: '4px 10px', borderRadius: 6 }}>
             MH-MT3-05
           </Tag>
           <Button
@@ -453,11 +453,11 @@ export default function TenantAlertConfig() {
                 ]}
                 extra={
                   selectedSeverity === 'CRITICAL' ? (
-                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 2 }}>
+                    <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2 }}>
                       Tự động 2 bước: phút 5 nhắc lại, phút 7 báo toàn bộ Admin (BR-T36)
                     </Text>
                   ) : (
-                    <Text type="secondary" style={{ fontSize: 11, display: 'block', marginTop: 2, color: '#94A3B8' }}>
+                    <Text type="secondary" style={{ fontSize: 12, display: 'block', marginTop: 2, color: '#94A3B8' }}>
                       Chỉ áp dụng tự động Escalation cho mức CRITICAL (BR-T28 / BR-T36)
                     </Text>
                   )
