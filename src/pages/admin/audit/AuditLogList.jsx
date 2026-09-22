@@ -326,14 +326,14 @@ export default function AuditLogList() {
           </Row>
         </div>
 
-        {/* Bảng dữ liệu 4 cột chuẩn BRD — Phân trang 20 dòng/trang */}
+        {/* Bảng dữ liệu 4 cột chuẩn BRD — Phân trang 10 dòng/trang */}
         <Table
           dataSource={logs}
           columns={columns}
           rowKey="id"
           loading={loading}
           pagination={{
-            pageSize: 20,
+            pageSize: 10,
             showTotal: (total) => (
               <span style={{ fontSize: 13 }}>
                 Tổng cộng <strong>{total}</strong> sự kiện Audit Log
