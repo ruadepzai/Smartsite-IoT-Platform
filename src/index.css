@@ -77,3 +77,14 @@ h5.ant-typography {
   filter: invert(100%) hue-rotate(180deg) brightness(88%) contrast(108%);
 }
 
+/* Ẩn hoàn toàn tiêu đề nhóm Menu khi Sidebar thu gọn (Collapsed) */
+.ant-layout-sider-collapsed .ant-menu-item-group-title {
+  display: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+}
+
+

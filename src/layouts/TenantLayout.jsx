@@ -86,7 +86,7 @@ export default function TenantLayout() {
   const menuItems = [
     {
       key: 'grp-overview',
-      label: 'TỔNG QUAN GIÁM SÁT',
+      label: !collapsed ? 'TỔNG QUAN GIÁM SÁT' : '',
       type: 'group',
       children: [
         {
@@ -99,7 +99,7 @@ export default function TenantLayout() {
     },
     {
       key: 'grp-mt2',
-      label: 'QUẢN LÝ GIÁM SÁT',
+      label: !collapsed ? 'QUẢN LÝ GIÁM SÁT' : '',
       type: 'group',
       children: [
         {
@@ -130,7 +130,7 @@ export default function TenantLayout() {
     },
     {
       key: 'grp-mt3',
-      label: 'ĐIỀU KHIỂN & CẢNH BÁO',
+      label: !collapsed ? 'ĐIỀU KHIỂN & CẢNH BÁO' : '',
       type: 'group',
       children: [
         {
@@ -165,7 +165,7 @@ export default function TenantLayout() {
     },
     {
       key: 'grp-mt4',
-      label: 'QUẢN LÝ NGƯỜI DÙNG',
+      label: !collapsed ? 'QUẢN LÝ NGƯỜI DÙNG' : '',
       type: 'group',
       children: [
         {
@@ -178,7 +178,7 @@ export default function TenantLayout() {
     },
     {
       key: 'grp-mt5',
-      label: 'BÁO CÁO THỐNG KÊ',
+      label: !collapsed ? 'BÁO CÁO THỐNG KÊ' : '',
       type: 'group',
       children: [
         {
@@ -301,7 +301,8 @@ export default function TenantLayout() {
             height: 52,
             display: 'flex',
             alignItems: 'center',
-            padding: '0 14px',
+            justifyContent: collapsed ? 'center' : 'flex-start',
+            padding: collapsed ? '0' : '0 14px',
             gap: 8,
             borderBottom: `1px solid ${isDark ? '#1F2937' : '#E5E7EB'}`,
           }}
